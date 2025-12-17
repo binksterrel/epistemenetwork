@@ -51,3 +51,21 @@ class GraphAnalyzer:
             print("   (Erreur calcul betweenness)")
 
         return results
+
+    def calculate_dominating_set(self) -> list:
+        """
+        Calcule l'ensemble dominant minimum (approximatif).
+        Un ensemble dominant S est un sous-ensemble de sommets tel que 
+        tout sommet est soit dans S, soit adjacent à un sommet de S.
+        """
+        if self.graph.number_of_nodes() == 0:
+            return []
+        
+        try:
+            # NetworkX fournit une approximation gloutonne
+            undirected = self.graph.to_undirected()
+            dom_set = nx.dominating_set(undirected)
+            return list(dom_set)
+        except Exception as e:
+            print(f"⚠️ Erreur calcul ensemble dominant: {e}")
+            return []

@@ -35,11 +35,14 @@ class GraphBuilder:
             print(f"🔎 [{len(self.visited)+1}/{MAX_SCIENTISTS}] Analyse de: {current_scientist} (Prof: {depth})")
             
             # 2. Récupération du texte
-            wiki_text = self.wiki_client.get_scientist_text(current_scientist)
+            result = self.wiki_client.get_scientist_text(current_scientist)
             
-            if not wiki_text:
+            if not result:
                 print(f"  ❌ Pas de page Wikipedia trouvée. Ignore.")
                 continue
+                
+            wiki_text, links = result
+            print(f"  📄 {len(wiki_text)} caractères récupérés. {len(links)} liens identifiés.")
             
             # 3. Ajout au graphe et marquage comme visité
             self.visited.add(current_scientist)
@@ -52,7 +55,7 @@ class GraphBuilder:
                 continue
                 
             # 4. Extraction des relations via LLM
-            relations = self.llm.extract_relations(wiki_text, current_scientist)
+            relations = self.llm.extract_relations(wiki_text, current_scientist, links=links)
             
             # 5. Traitement des "inspirations" (A a inspiré current)
             # Arc: A -> current

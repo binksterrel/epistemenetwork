@@ -1,11 +1,24 @@
 import json
 import requests
-from config import OPENAI_API_KEY, USE_OLLAMA, OLLAMA_URL, OLLAMA_MODEL, USE_GROQ, GROQ_API_KEY, GROQ_MODEL
+from config import (
+    OPENAI_API_KEY,
+    USE_OLLAMA,
+    OLLAMA_URL,
+    OLLAMA_MODEL,
+    USE_GROQ,
+    GROQ_API_KEY,
+    GROQ_MODEL,
+    USE_MISTRAL,
+    MISTRAL_API_KEY,
+    MISTRAL_MODEL,
+    MISTRAL_API_URL,
+)
 
 class LLMExtractor:
     def __init__(self):
         self.use_ollama = USE_OLLAMA
         self.use_groq = USE_GROQ
+        self.use_mistral = USE_MISTRAL
         
     def check_connection(self) -> bool:
         """Vérifie si le service LLM configuré est accessible."""
@@ -28,7 +41,26 @@ class LLMExtractor:
             except Exception as e:
                 print(f"  ❌ Erreur de connexion Groq: {e}")
                 return False
-                
+
+        if self.use_mistral:
+            if not MISTRAL_API_KEY:
+                print("  ❌ Clé API Mistral manquante dans config.py")
+                return False
+            try:
+                resp = requests.get(
+                    f"{MISTRAL_API_URL.rstrip('/')}/v1/models",
+                    headers={"Authorization": f"Bearer {MISTRAL_API_KEY}"},
+                    timeout=10,
+                )
+                if resp.status_code == 200:
+                    print(f"  ✅ Mode Mistral configuré et fonctionnel (Modèle: {MISTRAL_MODEL})")
+                    return True
+                print(f"  ❌ Mistral répond avec erreur {resp.status_code}")
+                return False
+            except Exception as e:
+                print(f"  ❌ Erreur de connexion Mistral: {e}")
+                return False
+
         if self.use_ollama:
             try:
                 # Vérification simple : lister les modèles ou juste voir si le serveur répond
@@ -67,11 +99,13 @@ class LLMExtractor:
             return True
 
         
-    def extract_relations(self, text: str, scientist_name: str) -> dict:
+    def extract_relations(self, text: str, scientist_name: str, links=None) -> dict:
         """
         Extrait les relations d'influence depuis un texte Wikipedia.
         Retourne un dictionnaire {'inspirations': [], 'inspired': []}
         """
+        links = links or []
+        links_hint = ", ".join(links[:200])
         # Le prompt est crucial pour obtenir du JSON propre
         prompt = f"""You are an expert analyst in the history of science.
 Analyze the text below regarding "{scientist_name}" to ALGORITHMICALLY extract their influence network.
@@ -84,6 +118,8 @@ CRITICAL Constraints:
 - Respond ONLY with valid JSON.
 - DO NOT cite "{scientist_name}" themselves.
 - If the text mentions no one, return empty lists.
+- **HINT**: The following entities are explicitly linked in the text. Prefer using names from this list if relevant (helps with spelling):
+  [{links_hint}]
 - Exact expected format:
 {{
   "inspirations": ["Name1", "Name2"],
@@ -101,17 +137,21 @@ Text to analyze:
         # 1. Essai prioritaire : Groq (Rapide)
         if self.use_groq:
             result = self._call_groq(prompt)
+
+        # 2. Fallback Mistral
+        if result is None and self.use_mistral:
+            result = self._call_mistral(prompt)
             
-        # 2. Si Groq a échoué (None) ou n'est pas activé, et qu'Ollama est dispo
+        # 3. Si Groq/Mistral ont échoué (None) ou ne sont pas activés, et qu'Ollama est dispo
         if result is None:
-            if self.use_groq:
-                print("  ⚠️ Échec Groq ou Rate Limit -> Basculement automatique sur OLLAMA 🦙")
+            if self.use_groq or self.use_mistral:
+                print("  ⚠️ Échec LLM primaire -> Basculement automatique sur OLLAMA 🦙")
             
             # Tente Ollama même si USE_OLLAMA=False, car c'est un fallback explicite
             result = self._call_ollama(prompt)
         
-        # 3. Dernier recours : OpenAI
-        if result is None and not self.use_groq and not self.use_ollama:
+        # 4. Dernier recours : OpenAI
+        if result is None and not self.use_groq and not self.use_ollama and not self.use_mistral:
              result = self._call_openai(prompt)
              
         # Si tout a échoué ou retour None
@@ -147,6 +187,40 @@ Text to analyze:
         except Exception as e:
             print(f"  ⚠️ Erreur Groq (Rate Limit ou autre): {e}")
             return None # Renvoie None pour déclencher le fallback Ollama
+
+    def _call_mistral(self, prompt: str) -> dict:
+        """Appel à l'API Mistral."""
+        if not MISTRAL_API_KEY:
+            print("  ⚠️ Clé API Mistral manquante dans config.py")
+            return None
+
+        try:
+            response = requests.post(
+                f"{MISTRAL_API_URL.rstrip('/')}/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {MISTRAL_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": MISTRAL_MODEL,
+                    "messages": [
+                        {"role": "system", "content": "You are a helpful assistant that outputs only valid JSON."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "temperature": 0.1,
+                    "stream": False,
+                },
+                timeout=120,
+            )
+            if response.status_code != 200:
+                print(f"  ⚠️ Erreur Mistral: Code {response.status_code}")
+                return None
+            data = response.json()
+            content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            return self._parse_json_response(content)
+        except Exception as e:
+            print(f"  ⚠️ Exception Mistral: {e}")
+            return None
     
     def _call_ollama(self, prompt: str) -> dict:
         """Appel à Ollama (gratuit, local)."""

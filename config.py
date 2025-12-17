@@ -9,13 +9,18 @@ OPENAI_API_KEY = ""
 
 # True = utiliser Ollama (gratuit, local)
 # False = utiliser OpenAI (payant, nécessite clé API)
-# False = utiliser OpenAI (payant, nécessite clé API)
 USE_OLLAMA = False
 
 # Configuration Groq (API Rapide)
-USE_GROQ = True
-GROQ_API_KEY = "TO_BE_DEFINED"
+USE_GROQ = False
+GROQ_API_KEY = ""
 GROQ_MODEL = "llama-3.3-70b-versatile"
+
+# Configuration Mistral (API)
+USE_MISTRAL = True
+MISTRAL_API_KEY = "YOUR_MISTRAL_API_KEY_HERE"
+MISTRAL_MODEL = "mistral-large-latest"
+MISTRAL_API_URL = "https://api.mistral.ai"
 
 # Configuration Ollama
 OLLAMA_URL = "http://127.0.0.1:11434"

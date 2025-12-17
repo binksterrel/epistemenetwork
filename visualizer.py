@@ -75,7 +75,7 @@ class GraphVisualizer:
         nodes_data = []
         for node in self.graph.nodes():
             score = pagerank.get(node, 0)
-            size = 12 + (score * 600)
+            size = 20 + (score * 1200)  # Taille immersive pour exploration
             
             # Couleur basée sur la communauté
             comm_id = community_map.get(node, 0)
@@ -627,9 +627,21 @@ class GraphVisualizer:
             progressBar.style.width = '100%';
             statusText.innerText = '100%';
             
+            // Démarrage immersif : zoom sur le premier scientifique
+            if(nodesData.length > 0) {{
+                const centralNode = nodesData[0].id;
+                network.focus(centralNode, {{
+                    scale: 1.8,
+                    animation: {{
+                        duration: 1200,
+                        easingFunction: "easeInOutQuad"
+                    }}
+                }});
+            }}
+            
             setTimeout(() => {{
                 loader.style.opacity = '0';
-                loader.style.pointerEvents = 'none'; // Disable interaction with loader
+                loader.style.pointerEvents = 'none';
                 setTimeout(() => loader.remove(), 1000);
             }}, 500);
         }});

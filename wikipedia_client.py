@@ -10,7 +10,7 @@ class WikipediaClient:
             language=WIKIPEDIA_LANGUAGE
         )
     
-    def get_scientist_text(self, name: str) -> Optional[str]:
+    def get_scientist_text(self, name: str) -> tuple[Optional[str], list]:
         """
         Récupère le texte Wikipedia d'un scientifique.
         Retourne le résumé + début du contenu pour ne pas surcharger le LLM.
@@ -28,7 +28,10 @@ class WikipediaClient:
         # Lire tout le texte est trop lent et cause des timeouts.
         content += f"Détails:\n{page.text[:25000]}"
         
-        return content
+        # 3. Récupérer les liens (c'est très utile pour aider le LLM à identifier les noms corrects)
+        links = list(page.links.keys())[:300]
+        
+        return content, links
     
     def page_exists(self, name: str) -> bool:
         """Vérifie si une page existe pour ce nom."""
