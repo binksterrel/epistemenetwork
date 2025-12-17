@@ -1,0 +1,7 @@
+wikipedia-api
+networkx
+pyvis
+openai
+requests
+groq
+python-pptx
