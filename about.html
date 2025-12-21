@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Réseau Social Scientifique</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-color: #FAFAFA;
+            --text-color: #333333;
+            --accent-color: #000000;
+            --secondary-text: #666666;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --border-color: #E5E5E5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 80px 20px 40px; /* Padding top for header */
+            line-height: 1.6;
+        }
+        
+        /* Animated Background (Aurora) */
+        .aurora-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: #FAFAFA;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 60vw;
+            height: 60vw;
+            background: #E0E7FF;
+            top: -20%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 50vw;
+            height: 50vw;
+            background: #F0FDFA;
+            bottom: -10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 40vw;
+            height: 40vw;
+            background: #F5F3FF;
+            top: 40%;
+            left: 40%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Noise Texture */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            color: var(--accent-color);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 24px;
+            color: var(--secondary-text);
+            font-size: 17px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 32px;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #FAFAFA;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+        
+        .tech-item:hover {
+            border-color: #333;
+            color: #333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-header"></div>
+    
+    <!-- Aurora Background -->
+    <div class="aurora-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <div class="container">
+        
+        <div style="text-align: center; margin-bottom: 64px;">
+            <h1>À Propos du Projet</h1>
+            <p style="font-size: 20px; max-width: 600px; margin: 0 auto;">
+                Une exploration algorithmique de l'histoire des sciences, combinant Scraping, IA et Théorie des Graphes.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Comment ça marche ?</h2>
+            <ul class="step-list">
+                <li class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Le Point de Départ</h3>
+                        <p>Tout commence avec un seul nom (ex: "Albert Einstein"). L'algorithme télécharge sa page Wikipedia.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Lecture par IA (LLM)</h3>
+                        <p>Un modèle de langage (Llama 3 via Groq) lit le texte et extrait les mentors, étudiants et collaborateurs influents.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Exploration Récursive</h3>
+                        <p>Les nouveaux scientifiques trouvés sont ajoutés à la file d'attente. Le processus se répète, tissant une toile complexe d'influences.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Analyse de Réseau</h3>
+                        <p>Une fois le graphe construit, nous appliquons des algorithmes (PageRank, Louvain) pour détecter les figures clés et les communautés.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h2>Technologies Utilisées</h2>
+        <div class="tech-grid">
+            <div class="tech-item"><i data-lucide="code-2" style="margin-bottom:8px"></i>Python</div>
+            <div class="tech-item"><i data-lucide="network" style="margin-bottom:8px"></i>NetworkX</div>
+            <div class="tech-item"><i data-lucide="brain-circuit" style="margin-bottom:8px"></i>Llama 3</div>
+            <div class="tech-item"><i data-lucide="layout" style="margin-bottom:8px"></i>Vis.js</div>
+            <div class="tech-item"><i data-lucide="globe" style="margin-bottom:8px"></i>Wikipedia API</div>
+            <div class="tech-item"><i data-lucide="box" style="margin-bottom:8px"></i>HTML5/CSS3</div>
+        </div>
+
+        <script>
+            lucide.createIcons();
+        </script>
+        <script src="header.js"></script>
+    </div>
+</body>
+</html>
