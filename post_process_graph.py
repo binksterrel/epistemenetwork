@@ -198,13 +198,38 @@ def post_process_graph(input_file="output/scientist_graph.gexf", output_file="ou
     
     print(f"   (Fusionné {count_auto} items par heuristique)")
 
+    print(f"   (Fusionné {count_auto} items par heuristique)")
+
+    # ==========================================
+    # 4. SUPPRESSION DES NŒUDS ISOLÉS (Giant Component)
+    # ==========================================
+    print("🕸️  Analyse de connectivité (Giant Component)...")
+    if nx.is_directed(graph):
+        components = list(nx.weakly_connected_components(graph))
+    else:
+        components = list(nx.connected_components(graph))
+    
+    components.sort(key=len, reverse=True)
+    
+    if len(components) > 1:
+        largest = components[0]
+        nodes_to_remove = []
+        for comp in components[1:]:
+            nodes_to_remove.extend(comp)
+            
+        graph.remove_nodes_from(nodes_to_remove)
+        print(f"✅  Supprimé {len(nodes_to_remove)} nœuds isolés/petits groupes.")
+        print(f"   (Conservé uniquement la composante principale de {len(largest)} nœuds)")
+    else:
+         print("✅  Le graphe est déjà entièrement connecté.")
+
     # ==========================================
     # SAUVEGARDE
     # ==========================================
     final_nodes = graph.number_of_nodes()
     nx.write_gexf(graph, output_file)
     print("-" * 30)
-    print("✅ POST-PROCESSING V4 TERMINÉ")
+    print("✅ POST-PROCESSING V4 (ULTRA-CLEAN) TERMINÉ")
     print(f"Avant: {initial_nodes} -> Après: {final_nodes}")
     print(f"Graphe sauvegardé : {output_file}")
 
