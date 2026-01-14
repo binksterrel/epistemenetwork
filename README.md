@@ -4,6 +4,17 @@ Un outil interactif pour **générer, visualiser et analyser** les connexions en
 
 ![Aperçu du Graphe](output/preview.png)
 
+## 📖 Vue d'ensemble
+
+**Réseau Scientifique — Pipeline Data & IA (Dec 2025 - Jan 2026)**
+
+Cartographie des influences scientifiques : Un outil interactif propulsé par l'IA qui connecte **~1 700 scientifiques** à travers les siècles (XIIe-XXIe) pour visualiser l'histoire des idées.
+
+*   **Objectif** : Générer automatiquement un graphe de connaissances à partir de biographies non structurées (Wikipédia).
+*   **Architecture** : Pipeline ETL robuste combinant Scraping, **Extraction & Classification Sémantique Multi-label** (Groq/Mistral) et Théorie des Graphes.
+*   **Data Engineering** : Stratégie de **Smart Caching** (MD5) pour optimiser les appels API. Création d'un "Golden Dataset" via nettoyage expert (Fuzzy Matching, Police Temporelle pour cohérence chronologique).
+*   **Analyse & Visu** : Détection de communautés et calcul de centralité (PageRank) pour identifier les "Passeurs de Savoir". Visualisation interactive (PyVis/Sigma.js) avec moteur physique.
+
 ## 🌟 Fonctionnalités
 
 ### Extraction et Analyse
