@@ -2,8 +2,6 @@
 
 Un outil interactif pour **générer, visualiser et analyser** les connexions entre scientifiques à partir de leurs pages Wikipédia, propulsé par l'Intelligence Artificielle.
 
-![Aperçu du Graphe](output/preview.png)
-
 ## 📖 Vue d'ensemble
 
 **Réseau Scientifique — Pipeline Data & IA (Dec 2025 - Jan 2026)**
