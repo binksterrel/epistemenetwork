@@ -1,126 +1,181 @@
-# 🔬 RÉSEAU D'INFLUENCE SCIENTIFIQUE
+# 🔬 RÉSEAU SCIENTIFIQUE
 
-**2. Réseau Scientifique — Pipeline Data & IA (Dec 2025 - Jan 2026)**
-
-Cartographie des influences scientifiques : Un outil interactif propulsé par l'IA qui connecte **~1 700 scientifiques** à travers les siècles (XIIe-XXIe) pour visualiser l'histoire des idées.
-
-*   **Objectif** : Générer automatiquement un graphe de connaissances à partir de biographies non structurées (Wikipédia).
-*   **Architecture** : Pipeline ETL robuste combinant Scraping, **Extraction & Classification Sémantique Multi-label** (Groq/Mistral) et Théorie des Graphes.
-*   **Data Engineering** : Stratégie de **Smart Caching** (MD5) pour optimiser les appels API. Création d'un "Golden Dataset" via nettoyage expert (Fuzzy Matching, Police Temporelle pour cohérence chronologique).
-*   **Analyse & Visu** : Détection de communautés et calcul de centralité (PageRank) pour identifier les "Passeurs de Savoir". Visualisation interactive (PyVis/Sigma.js) avec moteur physique.
-*   **Tech Stack** : Python, NetworkX, PyVis, LLM Engineering (Prompt Design), Data Cleaning.
-*   **GitHub** : https://github.com/binksterrel/GraphReseauScientifique
+Un outil interactif pour **générer, visualiser et analyser** les connexions entre scientifiques à partir de leurs pages Wikipédia, propulsé par l'Intelligence Artificielle.
 
 ![Aperçu du Graphe](output/preview.png)
 
-## 📊 Statistiques Actuelles
-Le graphe a été généré, nettoyé et consolidé pour offrir une vue précise de l'histoire des sciences.
+## 🌟 Fonctionnalités
 
-| Métrique | Valeur |
-|----------|--------|
-| **Nœuds** | **~1 726** scientifiques |
-| **Arêtes** | **~2 520** relations d'influence |
-| **Période** | **1105 - 2006** (XIIe - XXIe siècle) |
-| **Qualité** | **100% Connecté** (Pas de nœuds isolés, nettoyage "Giant Component") |
-| **Donnée** | **Enrichie** (Domaines scientifiques identifiés par IA) |
+### Extraction et Analyse
 
----
+*   **Extraction automatique** : Analyse des pages Wikipédia via LLM (Groq, OpenAI, Ollama, Mistral, Cerebras) pour trouver qui a influencé qui.
+*   **Prompt Few-Shot + Chain-of-Thought** : Prompts avancés avec exemples et raisonnement structuré pour une meilleure précision.
+*   **Cache intelligent** : Système de cache avec versioning pour éviter les appels LLM redondants.
+*   **Validation Wikidata** : Vérification croisée des relations extraites via l'API SPARQL de Wikidata.
 
-## 🚀 Installation & Démarrage
+### Visualisation Interactive
 
-### 1. Pré-requis
-*   Python 3.9+
-*   Une clé API (Groq, OpenAI, Mistral) **OU** Ollama installé localement.
+*   **Graphe dynamique** : Zoom, recherche, glisser-déposer des nœuds.
+*   **Filtres avancés** :
+    *   Par **domaine scientifique** (Physique, Mathématiques, Chimie, etc.)
+    *   Par **époque** (curseurs pour années de naissance/mort, 1400-2000)
+*   **Chemin le plus court** : Animation "fourmis" pour visualiser le lien entre deux scientifiques.
+*   **Données temporelles** : Années de naissance et mort affichées pour chaque scientifique.
 
-### 2. Installation
-```bash
-# Cloner le projet
-git clone https://github.com/binksterrel/GraphReseauScientifique.git
-cd GraphReseauScientifique
+### Algorithmes de Graphe
 
-# Créer un environnement virtuel
-python3 -m venv .venv
-source .venv/bin/activate  # Sur Mac/Linux
-# .venv\Scripts\activate # Sur Windows
+*   **PageRank** : Taille des nœuds selon leur influence globale dans le réseau.
+*   **Détection de communautés** : Couleurs selon les "écoles de pensée" (algorithme de Louvain).
+*   **Poids temporels** : Les arêtes sont pondérées selon la proximité temporelle des scientifiques liés.
 
-# Installer les dépendances
-pip install -r requirements.txt
-```
+### Analyse Avancée
 
-### 3. Configuration
-Ouvrez `config.py` et configurez votre LLM :
-```python
-USE_GROQ = True  # Recommandé pour la vitesse
-GROQ_API_KEY = "votre_cle_ici"
+*   **Détection des révolutionnaires** : Identification des "paradigm shifters" via l'analyse des trous structurels (constraint de Burt).
+*   **Prédiction de liens** : Suggestion de relations manquantes basée sur les métriques de similarité (Jaccard, Adamic-Adar).
+*   **Comparaison des traditions** : Analyse comparative des différentes écoles scientifiques (Grèce Antique, Lumières, etc.).
 
-# OU pour une utilisation locale gratuite :
-USE_OLLAMA = True
-```
+## 🚀 Installation
 
----
+**Pré-requis** : Python 3.9+
 
-## 🛠️ Workflow Complet (Pipeline)
+1.  **Cloner ou télécharger le dossier du projet.**
 
-Le projet suit un pipeline strict pour garantir la qualité des données.
+2.  **Créer un environnement virtuel (recommandé) :**
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate  # Linux/Mac
+    # ou .venv\Scripts\activate  # Windows
+    ```
 
-### Étape 1 : Génération du Graphe
-Scrape Wikipédia et utilise le LLM pour extraire les relations "Inspired by".
+3.  **Installer les dépendances :**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## ⚙️ Configuration
+
+Ouvrez le fichier `config.py` pour ajuster les paramètres :
+
+### Choix du LLM
+| Variable | Fournisseur | Description |
+|----------|-------------|-------------|
+| `USE_GROQ = True` | Groq | Recommandé (300+ tokens/s) |
+| `USE_OLLAMA = True` | Ollama | Exécution locale gratuite |
+| `USE_OPENAI = True` | OpenAI | GPT-3.5/4 |
+| `USE_MISTRAL = True` | Mistral AI | Alternative européenne |
+| `USE_CEREBRAS = True` | Cerebras | Très rapide |
+
+### Limites du Graphe
+*   `MAX_DEPTH` : Profondeur d'exploration depuis le point de départ (ex: 6).
+*   `MAX_SCIENTISTS` : Nombre maximum de nœuds (ex: 500).
+*   `START_SCIENTIST` : Point de départ de l'exploration (ex: `"Albert Einstein"`).
+
+## 🏃‍♂️ Utilisation
+
+### Génération du graphe
 ```bash
 python3 main.py
 ```
+*Le script va scanner Wikipédia, interroger l'IA, et construire le graphe en temps réel.*
 
-### Étape 2 : Nettoyage Expert (Post-Processing)
-Standardisation des noms, fusion des doublons (ex: Oppenheimer), suppression du "bruit" et des isolés.
-```bash
-python3 post_process_graph.py
+### Ouvrir la visualisation
+Ouvrez simplement le fichier généré dans votre navigateur :
+```
+output/index.html
 ```
 
-### Étape 3 : Enrichissement des Données (Champs)
-Interroge l'IA pour identifier le domaine scientifique (Physics, Chemistry...) des profils manquants.
+### Scripts d'analyse avancée
+
 ```bash
-python3 enrich_fields.py
+# Enrichir avec les données temporelles
+python3 scripts/enrich_temporal.py
+
+# Détecter les révolutionnaires scientifiques
+python3 scripts/paradigm_shifters.py
+
+# Prédire les liens manquants
+python3 scripts/link_prediction.py
+
+# Comparer les traditions scientifiques
+python3 scripts/tradition_analysis.py
+
+# Valider les relations avec Wikidata
+python3 validator.py
 ```
 
-### Étape 4 : Visualisation & Rapports
-Génère le site web statique (`index.html`) et les rapports texte.
+### Maintenance du graphe
+
 ```bash
-python3 visualize_current.py
-python3 export_text_report.py
+# Supprimer les nœuds isolés
+python3 scripts/remove_isolated.py
+
+# Dédupliquer les nœuds
+python3 scripts/deduplicate_nodes.py
+
+# Regrouper les domaines mineurs
+python3 scripts/group_to_other.py
+
+# Sauvegarder une version
+python3 scripts/save_version.py "v2.0_description"
 ```
 
-> **Note :** Pour lancer le serveur web localement :
-> `python3 -m http.server 8000 --directory output`
+## 📂 Structure du projet
+
+```
+.
+├── main.py                  # Orchestrateur principal
+├── config.py                # Configuration (LLM, limites, etc.)
+├── wikipedia_client.py      # Récupération des textes Wikipédia
+├── llm_extractor.py         # Extraction des relations via LLM
+├── graph_builder.py         # Construction du graphe NetworkX
+├── graph_analyzer.py        # PageRank, communautés, métriques
+├── visualizer.py            # Génération HTML/JS interactive
+├── cache_manager.py         # Cache intelligent pour LLM
+├── validator.py             # Validation Wikidata
+│
+├── scripts/
+│   ├── enrich_temporal.py       # Extraction des dates (naissance/mort)
+│   ├── paradigm_shifters.py     # Analyse des trous structurels
+│   ├── link_prediction.py       # Prédiction de liens manquants
+│   ├── tradition_analysis.py    # Comparaison des traditions
+│   ├── deduplicate_nodes.py     # Fusion des doublons
+│   ├── filter_non_scientists.py # Nettoyage des non-scientifiques
+│   ├── remove_isolated.py       # Suppression des nœuds isolés
+│   ├── group_to_other.py        # Regroupement des domaines mineurs
+│   ├── regenerate_viz.py        # Régénération de la visualisation
+│   └── save_version.py          # Sauvegarde avec versioning
+│
+├── output/
+│   ├── index.html           # Visualisation interactive
+│   ├── about.html           # Page "À propos" du projet
+│   └── scientist_graph.gexf # Graphe au format GEXF (Gephi)
+│
+├── saves/                   # Versions sauvegardées du graphe
+└── data/                    # Cache des réponses LLM
+```
+
+## 📊 Métriques du Graphe Actuel
+
+| Métrique | Valeur |
+|----------|--------|
+| **Nœuds** | ~412 scientifiques |
+| **Arêtes** | ~540 relations d'influence |
+| **Communautés** | 15 clusters thématiques |
+| **Top influenceur** | Isaac Newton (PageRank) |
+| **Données temporelles** | 365 scientifiques datés |
+
+## 🛠️ Technologies
+
+*   **Python 3.9+** avec NetworkX, Requests, Wikipedia-API
+*   **LLM** : Groq (Llama 3), Ollama, OpenAI, Mistral, Cerebras
+*   **Frontend** : vis-network.js, HTML5/CSS3/JavaScript
+*   **APIs** : Wikipedia API, Wikidata SPARQL
+
+## 📝 Licence
+
+Projet universitaire - MIASHS L3 - Graphes et Open Data
 
 ---
 
-## 📂 Structure du Fichier
-
-### 🔹 Scripts Cœur (Core)
-*   `main.py` : Orchestrateur de la génération.
-*   `post_process_graph.py` : Algorithmes de nettoyage et fusion (NetworkX).
-*   `enrich_fields.py` : Script d'enrichissement de métadonnées.
-*   `llm_extractor.py` : Interface unifiée pour tous les LLMs.
-*   `config.py` : Paramètres globaux.
-
-### 🔹 Dossiers
-*   `output/` : Contient le site web généré (`index.html`, `graph.html`) et le fichier GEXF.
-*   `saves/` : Backups des versions majeures.
-*   `scripts/archive/` : Anciens scripts utilitaires (nettoyage, audit).
-
----
-
-## 🌟 Fonctionnalités du Site Web
-
-*   **Graphe interactif** (Zoom, Pan, Physics engine).
-*   **Recherche temps réel** de scientifiques.
-*   **Filtres temporels** (Curseur d'années).
-*   **Coloration dynamique** par communauté ou domaine.
-*   **Fiches détaillées** au clic (Wikipedia summary).
-
----
-
-## 📝 Licence & Auteur
-**Auteur** : Terrel Nuentsa
-**Université** : L3 MIASHS - Graphes et Open Data
-Projet Universitaire - Semestre 2
-mtn
+**Auteur** : Terrel Nuentsa  
+**Université** : L3 MIASHS - Semestre 2
