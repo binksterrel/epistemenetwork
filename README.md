@@ -1,10 +1,19 @@
-# 🔬 RÉSEAU D'INFLUENCE SCIENTIFIQUE (V5)
+# 🔬 RÉSEAU D'INFLUENCE SCIENTIFIQUE
 
-Un outil interactif complet pour **générer, nettoyer, enrichir et visualiser** les connexions entre scientifiques à travers l'histoire, propulsé par l'IA (LLM).
+**2. Réseau Scientifique — Pipeline Data & IA (Dec 2025 - Jan 2026)**
+
+Cartographie des influences scientifiques : Un outil interactif propulsé par l'IA qui connecte **~1 700 scientifiques** à travers les siècles (XIIe-XXIe) pour visualiser l'histoire des idées.
+
+*   **Objectif** : Générer automatiquement un graphe de connaissances à partir de biographies non structurées (Wikipédia).
+*   **Architecture** : Pipeline ETL robuste combinant Scraping, **Extraction & Classification Sémantique Multi-label** (Groq/Mistral) et Théorie des Graphes.
+*   **Data Engineering** : Stratégie de **Smart Caching** (MD5) pour optimiser les appels API. Création d'un "Golden Dataset" via nettoyage expert (Fuzzy Matching, Police Temporelle pour cohérence chronologique).
+*   **Analyse & Visu** : Détection de communautés et calcul de centralité (PageRank) pour identifier les "Passeurs de Savoir". Visualisation interactive (PyVis/Sigma.js) avec moteur physique.
+*   **Tech Stack** : Python, NetworkX, PyVis, LLM Engineering (Prompt Design), Data Cleaning.
+*   **GitHub** : https://github.com/binksterrel/GraphReseauScientifique
 
 ![Aperçu du Graphe](output/preview.png)
 
-## 📊 Statistiques Actuelles (Version 5 - Final)
+## 📊 Statistiques Actuelles
 Le graphe a été généré, nettoyé et consolidé pour offrir une vue précise de l'histoire des sciences.
 
 | Métrique | Valeur |
@@ -95,7 +104,7 @@ python3 export_text_report.py
 
 ### 🔹 Dossiers
 *   `output/` : Contient le site web généré (`index.html`, `graph.html`) et le fichier GEXF.
-*   `saves/` : Backups des versions majeures (V1, V2, ... V5).
+*   `saves/` : Backups des versions majeures.
 *   `scripts/archive/` : Anciens scripts utilitaires (nettoyage, audit).
 
 ---
