@@ -158,11 +158,11 @@ python3 scripts/save_version.py "v2.0_description"
 
 | Métrique | Valeur |
 |----------|--------|
-| **Nœuds** | ~412 scientifiques |
-| **Arêtes** | ~540 relations d'influence |
-| **Communautés** | 15 clusters thématiques |
-| **Top influenceur** | Isaac Newton (PageRank) |
-| **Données temporelles** | 365 scientifiques datés |
+| **Nœuds** | ~1 726 scientifiques |
+| **Arêtes** | ~2 520 relations d'influence |
+| **Période** | 1105 - 2006 (XIIe - XXIe siècle) |
+| **Qualité** | 100% Connecté (Pas de nœuds isolés) |
+| **Donnée** | Enrichie (Domaines scientifiques identifiés par IA) |
 
 ## 🛠️ Technologies
 
