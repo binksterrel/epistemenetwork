@@ -1,13 +1,7 @@
 ============================================================
 RAPPORT D'INFLUENCE SCIENTIFIQUE
-Nombre de scientifiques: 1768
+Nombre de scientifiques: 1726
 ============================================================
-
-🧑‍🔬 A. A. Albert (1905) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
 
 🧑‍🔬 A. E. Becquerel (1820) - Non spécifié
    ⬅️  A été influencé par (1) :
@@ -44,12 +38,6 @@ Nombre de scientifiques: 1768
    ➡️  A influencé (2) :
        - Fred Eggan
        - Hortense Powdermaker
-
-----------------------------------------
-
-🧑‍🔬 A. S. Besicovitch (1891) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -115,17 +103,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Abram Besicovitch (1891) - Mathematics
-   ⬅️  A été influencé par (3) :
-       - Andrey Markov
-       - G.H. Hardy
-       - Harald Bohr
-   ➡️  A influencé (2) :
-       - Dennis Lindley
-       - Piero Sraffa
-
-----------------------------------------
-
 🧑‍🔬 Abram Ioffe (1880) - Non spécifié
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
@@ -147,13 +124,6 @@ Nombre de scientifiques: 1768
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
        - Enrico D'Ovidio
-
-----------------------------------------
-
-🧑‍🔬 Achyuta Pisharati (Inconnu) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (1) :
-       - Melpathur Narayana Bhattathiri
 
 ----------------------------------------
 
@@ -850,12 +820,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Andrew Reed (Inconnu) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Andrew du Plessis (1994) - Non spécifié
    ⬅️  A été influencé par (1) :
        - René Thom
@@ -867,13 +831,6 @@ Nombre de scientifiques: 1768
    ⬅️  A été influencé par (1) :
        - Peter Kapitza
    ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Andrey Markov (1871) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (1) :
-       - Abram Besicovitch
 
 ----------------------------------------
 
@@ -924,12 +881,6 @@ Nombre de scientifiques: 1768
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
        - Henri Cartan
-
-----------------------------------------
-
-🧑‍🔬 Anna Grubb (1782) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -1769,12 +1720,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Canadian artist and engraver (1963) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Carl Eckart (1902) - Engineering
    ⬅️  A été influencé par (6) :
        - Arnold Sommerfeld
@@ -2047,15 +1992,6 @@ Nombre de scientifiques: 1768
        - John Herschel
    ➡️  A influencé (1) :
        - Ada Lovelace
-
-----------------------------------------
-
-🧑‍🔬 Charles Batchelor (1845) - Other
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (3) :
-       - Francis Upton
-       - John Kruesi
-       - Nikola Tesla
 
 ----------------------------------------
 
@@ -2692,13 +2628,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Dennis Lindley (1923) - Non spécifié
-   ⬅️  A été influencé par (1) :
-       - Abram Besicovitch
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Dennis William Sciama (1926) - Non spécifié
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
@@ -2858,21 +2787,9 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 E.H. Moore (1862) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Eadweard Muybridge (1830) - Other
    ⬅️  A été influencé par (1) :
        - Etienne Jules Marey
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Ebenezer Cunningham (1881) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
@@ -3013,12 +2930,6 @@ Nombre de scientifiques: 1768
        - Charles Galton Darwin
    ➡️  A influencé (1) :
        - Bronisław Malinowski
-
-----------------------------------------
-
-🧑‍🔬 Edward Appleton (1892) - Physics
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -3927,12 +3838,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 F. P. Ramsey (1903) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Fanny Ellingwood Larcom (1836) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Francis Ellingwood Abbot
@@ -4117,13 +4022,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Francis G. Pease (1881) - Astronomy
-   ⬅️  A été influencé par (1) :
-       - George W. Ritchey
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Francis Galton (1822) - Biology
    ⬅️  A été influencé par (1) :
        - Charles Galton Darwin
@@ -4162,13 +4060,6 @@ Nombre de scientifiques: 1768
 🧑‍🔬 Francis Sears (1898) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Mark Zemansky
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Francis Upton (1852) - Non spécifié
-   ⬅️  A été influencé par (1) :
-       - Charles Batchelor
    ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
@@ -4212,12 +4103,6 @@ Nombre de scientifiques: 1768
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
        - Charles Horton Cooley
-
-----------------------------------------
-
-🧑‍🔬 Franklin Leonard Pope (1840) - Engineering
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -4821,13 +4706,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 G.H. Hardy (1877) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (1) :
-       - Abram Besicovitch
-
-----------------------------------------
-
 🧑‍🔬 G.H. Shortley (Inconnu) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Edward Condon
@@ -5072,12 +4950,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 George Bruce Halsted (1853) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 George David Birkhoff (1884) - Non spécifié
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (2) :
@@ -5299,13 +5171,6 @@ Nombre de scientifiques: 1768
        - E.G.D. Cohen
        - Enrico Fermi
        - Samuel Goudsmit
-
-----------------------------------------
-
-🧑‍🔬 George W. Ritchey (1864) - Astronomy
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (1) :
-       - Francis G. Pease
 
 ----------------------------------------
 
@@ -5864,12 +5729,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 H. Christopher Longuet-Higgins (1923) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 H. F. Baker (1866) - Non spécifié
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
@@ -6046,13 +5905,6 @@ Nombre de scientifiques: 1768
    ⬅️  A été influencé par (1) :
        - Karl Jaspers
    ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Harald Bohr (1887) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé (1) :
-       - Abram Besicovitch
 
 ----------------------------------------
 
@@ -7203,12 +7055,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 J. E. Littlewood (1885) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 J. Ernest Wilkins Jr. (1923) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Eugene Wigner
@@ -7292,12 +7138,6 @@ Nombre de scientifiques: 1768
        - Daniel Bernoulli
        - Johann Bernoulli
        - Leonhard Euler
-
-----------------------------------------
-
-🧑‍🔬 Jacob Eames (1641) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -8266,12 +8106,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 John Aitken (1752) - Other
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 John Arnold Cranston (1891) - Chemistry
    ⬅️  A été influencé par (1) :
        - Frederick Soddy
@@ -8546,13 +8380,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 John Kruesi (1843) - Non spécifié
-   ⬅️  A été influencé par (1) :
-       - Charles Batchelor
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 John Lennard-Jones (1894) - Physics
    ⬅️  A été influencé par (2) :
        - Ralph H. Fowler
@@ -8596,12 +8423,6 @@ Nombre de scientifiques: 1768
        - Philipp van Limborch
        - Scottish Enlightenment thinkers
        - Wilhelm Wundt
-
-----------------------------------------
-
-🧑‍🔬 John Maddox (1925) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -10070,12 +9891,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Louis Leon Thurstone (1887) - Engineering
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Louis Nicolas Vauquelin (1763) - Chemistry
    ⬅️  A été influencé par (1) :
        - Antoine François Fourcroy
@@ -10737,12 +10552,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Maung Naw (1788) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Maurice Merleau-Ponty (1908) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Jean-Paul Sartre
@@ -10947,13 +10756,6 @@ Nombre de scientifiques: 1768
    ⬅️  A été influencé par (2) :
        - Eugene Feenberg
        - Robert Oppenheimer
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Melpathur Narayana Bhattathiri (1560) - Mathematics
-   ⬅️  A été influencé par (1) :
-       - Achyuta Pisharati
    ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
@@ -11354,13 +11156,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Nikola Tesla (1856) - Non spécifié
-   ⬅️  A été influencé par (1) :
-       - Charles Batchelor
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Nikolaus Riehl (1901) - Chemistry
    ⬅️  A été influencé par (2) :
        - Lise Meitner
@@ -11427,12 +11222,6 @@ Nombre de scientifiques: 1768
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
        - Chaim Weizmann
-
-----------------------------------------
-
-🧑‍🔬 Ole Maaløe (1928) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -11697,12 +11486,6 @@ Nombre de scientifiques: 1768
    ➡️  A influencé (2) :
        - Acharya Prafulla Chandra Ray
        - Dwarakanath Vidyabhusan
-
-----------------------------------------
-
-🧑‍🔬 Paris professors (Inconnu) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -12189,13 +11972,6 @@ Nombre de scientifiques: 1768
 🧑‍🔬 Phillip Allen Sharp (1944) - Medicine
    ⬅️  A été influencé par (1) :
        - Salvador Luria
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Piero Sraffa (1898) - Non spécifié
-   ⬅️  A été influencé par (1) :
-       - Abram Besicovitch
    ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
@@ -12746,12 +12522,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Richard Grubb (Inconnu) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Richard Jones (Inconnu) - Non spécifié
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
@@ -13114,12 +12884,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 Roy McWeeny (1924) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 Rudolf Clausius (1822) - Physics
    ⬅️  A été influencé par (6) :
        - Gustav Magnus
@@ -13424,18 +13188,6 @@ Nombre de scientifiques: 1768
        - John Locke
    ➡️  A influencé (1) :
        - Allan Ramsay
-
-----------------------------------------
-
-🧑‍🔬 Scottish actuary (1736) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 Scottish mathematician (1550) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -13866,12 +13618,6 @@ Nombre de scientifiques: 1768
 
 ----------------------------------------
 
-🧑‍🔬 The Brethren (Inconnu) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
 🧑‍🔬 The New Church (Swedenborgianism) (1688) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Emanuel Swedenborg
@@ -14014,12 +13760,6 @@ Nombre de scientifiques: 1768
    ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé (1) :
        - Richard Whately
-
-----------------------------------------
-
-🧑‍🔬 Thomas Paine (1776) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 
@@ -14187,12 +13927,6 @@ Nombre de scientifiques: 1768
 🧑‍🔬 Tyler Jacks (Inconnu) - Non spécifié
    ⬅️  A été influencé par (1) :
        - Robert Weinberg
-   ➡️  A influencé : Personne (dans ce graphe)
-
-----------------------------------------
-
-🧑‍🔬 U Shwe Ngong (1788) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
    ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
@@ -15102,12 +14836,6 @@ Nombre de scientifiques: 1768
        - Henry Enfield Roscoe
    ➡️  A influencé (1) :
        - Henry Enfield Roscoe
-
-----------------------------------------
-
-🧑‍🔬 William E. (Bill) Moffitt (1910) - Non spécifié
-   ⬅️  Influencé par : Personne (dans ce graphe)
-   ➡️  A influencé : Personne (dans ce graphe)
 
 ----------------------------------------
 

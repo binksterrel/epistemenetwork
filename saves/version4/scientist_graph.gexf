@@ -210,13 +210,6 @@
           <attvalue for="2" value="1866" />
         </attvalues>
       </node>
-      <node id="Francis G. Pease" label="Francis G. Pease">
-        <attvalues>
-          <attvalue for="0" value="4" />
-          <attvalue for="1" value="Astronomy" />
-          <attvalue for="2" value="1881" />
-        </attvalues>
-      </node>
       <node id="Frederik Kaiser" label="Frederik Kaiser">
         <attvalues>
           <attvalue for="0" value="4" />
@@ -491,13 +484,6 @@
       <node id="Charles A. Young" label="Charles A. Young">
         <attvalues>
           <attvalue for="2" value="1720" />
-        </attvalues>
-      </node>
-      <node id="George W. Ritchey" label="George W. Ritchey">
-        <attvalues>
-          <attvalue for="0" value="5" />
-          <attvalue for="1" value="Astronomy" />
-          <attvalue for="2" value="1864" />
         </attvalues>
       </node>
       <node id="Jean Abraham Chrétien Oudemans" label="Jean Abraham Chrétien Oudemans">
@@ -1213,18 +1199,6 @@
           <attvalue for="2" value="1908" />
         </attvalues>
       </node>
-      <node id="Ole Maaløe" label="Ole Maaløe">
-        <attvalues>
-          <attvalue for="2" value="1928" />
-        </attvalues>
-      </node>
-      <node id="Louis Leon Thurstone" label="Louis Leon Thurstone">
-        <attvalues>
-          <attvalue for="0" value="5" />
-          <attvalue for="1" value="Engineering" />
-          <attvalue for="2" value="1887" />
-        </attvalues>
-      </node>
       <node id="Sydney Brenner" label="Sydney Brenner">
         <attvalues>
           <attvalue for="0" value="5" />
@@ -1397,21 +1371,6 @@
           <attvalue for="0" value="6" />
           <attvalue for="1" value="Physics" />
           <attvalue for="2" value="1799" />
-        </attvalues>
-      </node>
-      <node id="Scottish actuary" label="Scottish actuary">
-        <attvalues>
-          <attvalue for="2" value="1736" />
-        </attvalues>
-      </node>
-      <node id="Scottish mathematician" label="Scottish mathematician">
-        <attvalues>
-          <attvalue for="2" value="1550" />
-        </attvalues>
-      </node>
-      <node id="Canadian artist and engraver" label="Canadian artist and engraver">
-        <attvalues>
-          <attvalue for="2" value="1963" />
         </attvalues>
       </node>
       <node id="Oswald Külpe" label="Oswald Külpe">
@@ -3073,13 +3032,6 @@
           <attvalue for="2" value="1877" />
         </attvalues>
       </node>
-      <node id="Edward Appleton" label="Edward Appleton">
-        <attvalues>
-          <attvalue for="0" value="6" />
-          <attvalue for="1" value="Physics" />
-          <attvalue for="2" value="1892" />
-        </attvalues>
-      </node>
       <node id="James Franck" label="James Franck">
         <attvalues>
           <attvalue for="0" value="6" />
@@ -4665,13 +4617,6 @@
           <attvalue for="2" value="1843" />
         </attvalues>
       </node>
-      <node id="Abram Besicovitch" label="Abram Besicovitch">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Mathematics" />
-          <attvalue for="2" value="1891" />
-        </attvalues>
-      </node>
       <node id="Julian Schwinger" label="Julian Schwinger">
         <attvalues>
           <attvalue for="0" value="7" />
@@ -5812,13 +5757,6 @@
           <attvalue for="2" value="1688" />
         </attvalues>
       </node>
-      <node id="Melpathur Narayana Bhattathiri" label="Melpathur Narayana Bhattathiri">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Mathematics" />
-          <attvalue for="2" value="1560" />
-        </attvalues>
-      </node>
       <node id="Hermann Braune" label="Hermann Braune">
         <attvalues>
           <attvalue for="2" value="1902" />
@@ -6155,20 +6093,6 @@
           <attvalue for="2" value="1884" />
         </attvalues>
       </node>
-      <node id="Franklin Leonard Pope" label="Franklin Leonard Pope">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Engineering" />
-          <attvalue for="2" value="1840" />
-        </attvalues>
-      </node>
-      <node id="Charles Batchelor" label="Charles Batchelor">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Other" />
-          <attvalue for="2" value="1845" />
-        </attvalues>
-      </node>
       <node id="John Yudkin" label="John Yudkin">
         <attvalues>
           <attvalue for="0" value="7" />
@@ -6485,13 +6409,6 @@
           <attvalue for="2" value="1852" />
         </attvalues>
       </node>
-      <node id="John Aitken" label="John Aitken">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Other" />
-          <attvalue for="2" value="1752" />
-        </attvalues>
-      </node>
       <node id="Gustav Hertz" label="Gustav Hertz">
         <attvalues>
           <attvalue for="2" value="1887" />
@@ -6553,11 +6470,6 @@
         </attvalues>
       </node>
       <node id="Thomas Street" label="Thomas Street" />
-      <node id="E.H. Moore" label="E.H. Moore">
-        <attvalues>
-          <attvalue for="2" value="1862" />
-        </attvalues>
-      </node>
       <node id="William Derham" label="William Derham">
         <attvalues>
           <attvalue for="2" value="1657" />
@@ -6693,7 +6605,6 @@
           <attvalue for="2" value="1873" />
         </attvalues>
       </node>
-      <node id="Paris professors" label="Paris professors" />
       <node id="English empiricism (sensualism)" label="English empiricism (sensualism)" />
       <node id="Thomas Reid" label="Thomas Reid">
         <attvalues>
@@ -8096,31 +8007,6 @@
           <attvalue for="2" value="1860" />
         </attvalues>
       </node>
-      <node id="Andrey Markov" label="Andrey Markov">
-        <attvalues>
-          <attvalue for="2" value="1871" />
-        </attvalues>
-      </node>
-      <node id="Harald Bohr" label="Harald Bohr">
-        <attvalues>
-          <attvalue for="2" value="1887" />
-        </attvalues>
-      </node>
-      <node id="G.H. Hardy" label="G.H. Hardy">
-        <attvalues>
-          <attvalue for="2" value="1877" />
-        </attvalues>
-      </node>
-      <node id="Piero Sraffa" label="Piero Sraffa">
-        <attvalues>
-          <attvalue for="2" value="1898" />
-        </attvalues>
-      </node>
-      <node id="Dennis Lindley" label="Dennis Lindley">
-        <attvalues>
-          <attvalue for="2" value="1923" />
-        </attvalues>
-      </node>
       <node id="Roy Glauber" label="Roy Glauber">
         <attvalues>
           <attvalue for="2" value="1925" />
@@ -9292,19 +9178,9 @@
           <attvalue for="2" value="1921" />
         </attvalues>
       </node>
-      <node id="George Bruce Halsted" label="George Bruce Halsted">
-        <attvalues>
-          <attvalue for="2" value="1853" />
-        </attvalues>
-      </node>
       <node id="E. H. Moore" label="E. H. Moore">
         <attvalues>
           <attvalue for="2" value="1862" />
-        </attvalues>
-      </node>
-      <node id="A. A. Albert" label="A. A. Albert">
-        <attvalues>
-          <attvalue for="2" value="1905" />
         </attvalues>
       </node>
       <node id="William Jones" label="William Jones" />
@@ -9354,7 +9230,6 @@
         </attvalues>
       </node>
       <node id="John Jennings" label="John Jennings" />
-      <node id="Andrew Reed" label="Andrew Reed" />
       <node id="John Henry Newman" label="John Henry Newman">
         <attvalues>
           <attvalue for="2" value="1833" />
@@ -9499,11 +9374,6 @@
           <attvalue for="2" value="1686" />
         </attvalues>
       </node>
-      <node id="Thomas Paine" label="Thomas Paine">
-        <attvalues>
-          <attvalue for="2" value="1776" />
-        </attvalues>
-      </node>
       <node id="Joseph Hume" label="Joseph Hume">
         <attvalues>
           <attvalue for="2" value="1777" />
@@ -9578,22 +9448,6 @@
       </node>
       <node id="Broadmead Baptist Church" label="Broadmead Baptist Church" />
       <node id="Baptist Union of Great Britain" label="Baptist Union of Great Britain" />
-      <node id="Jacob Eames" label="Jacob Eames">
-        <attvalues>
-          <attvalue for="2" value="1641" />
-        </attvalues>
-      </node>
-      <node id="The Brethren" label="The Brethren" />
-      <node id="Maung Naw" label="Maung Naw">
-        <attvalues>
-          <attvalue for="2" value="1788" />
-        </attvalues>
-      </node>
-      <node id="U Shwe Ngong" label="U Shwe Ngong">
-        <attvalues>
-          <attvalue for="2" value="1788" />
-        </attvalues>
-      </node>
       <node id="H. S. Olcott" label="H. S. Olcott">
         <attvalues>
           <attvalue for="2" value="1832" />
@@ -9609,7 +9463,6 @@
           <attvalue for="2" value="1688" />
         </attvalues>
       </node>
-      <node id="Achyuta Pisharati" label="Achyuta Pisharati" />
       <node id="Max Volmer" label="Max Volmer">
         <attvalues>
           <attvalue for="2" value="1885" />
@@ -9790,46 +9643,6 @@
           <attvalue for="2" value="1854" />
         </attvalues>
       </node>
-      <node id="A. S. Besicovitch" label="A. S. Besicovitch">
-        <attvalues>
-          <attvalue for="2" value="1891" />
-        </attvalues>
-      </node>
-      <node id="J. E. Littlewood" label="J. E. Littlewood">
-        <attvalues>
-          <attvalue for="2" value="1885" />
-        </attvalues>
-      </node>
-      <node id="F. P. Ramsey" label="F. P. Ramsey">
-        <attvalues>
-          <attvalue for="2" value="1903" />
-        </attvalues>
-      </node>
-      <node id="Ebenezer Cunningham" label="Ebenezer Cunningham">
-        <attvalues>
-          <attvalue for="2" value="1881" />
-        </attvalues>
-      </node>
-      <node id="H. Christopher Longuet-Higgins" label="H. Christopher Longuet-Higgins">
-        <attvalues>
-          <attvalue for="2" value="1923" />
-        </attvalues>
-      </node>
-      <node id="John Maddox" label="John Maddox">
-        <attvalues>
-          <attvalue for="2" value="1925" />
-        </attvalues>
-      </node>
-      <node id="Roy McWeeny" label="Roy McWeeny">
-        <attvalues>
-          <attvalue for="2" value="1924" />
-        </attvalues>
-      </node>
-      <node id="William E. (Bill) Moffitt" label="William E. (Bill) Moffitt">
-        <attvalues>
-          <attvalue for="2" value="1910" />
-        </attvalues>
-      </node>
       <node id="George David Birkhoff" label="George David Birkhoff">
         <attvalues>
           <attvalue for="2" value="1884" />
@@ -9978,21 +9791,6 @@
           <attvalue for="2" value="1918" />
         </attvalues>
       </node>
-      <node id="Nikola Tesla" label="Nikola Tesla">
-        <attvalues>
-          <attvalue for="2" value="1856" />
-        </attvalues>
-      </node>
-      <node id="John Kruesi" label="John Kruesi">
-        <attvalues>
-          <attvalue for="2" value="1843" />
-        </attvalues>
-      </node>
-      <node id="Francis Upton" label="Francis Upton">
-        <attvalues>
-          <attvalue for="2" value="1852" />
-        </attvalues>
-      </node>
       <node id="Robert Lustig" label="Robert Lustig">
         <attvalues>
           <attvalue for="2" value="1957" />
@@ -10113,12 +9911,6 @@
         </attvalues>
       </node>
       <node id="Amanda Booth" label="Amanda Booth" />
-      <node id="Anna Grubb" label="Anna Grubb">
-        <attvalues>
-          <attvalue for="2" value="1782" />
-        </attvalues>
-      </node>
-      <node id="Richard Grubb" label="Richard Grubb" />
       <node id="Thomas Ranken Lyle" label="Thomas Ranken Lyle">
         <attvalues>
           <attvalue for="2" value="1860" />
@@ -11409,11 +11201,6 @@
         </attvalues>
       </edge>
       <edge source="Charles A. Young" target="Dayton C. Miller" id="308">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="George W. Ritchey" target="Francis G. Pease" id="309">
         <attvalues>
           <attvalue for="4" value="inspired" />
         </attvalues>
@@ -18508,16 +18295,6 @@
           <attvalue for="4" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Abram Besicovitch" target="Piero Sraffa" id="2071">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Abram Besicovitch" target="Dennis Lindley" id="2072">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="Julian Schwinger" target="Roy Glauber" id="2074">
         <attvalues>
           <attvalue for="4" value="inspired" />
@@ -20367,21 +20144,6 @@
           <attvalue for="4" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Charles Batchelor" target="Nikola Tesla" id="2579">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Charles Batchelor" target="John Kruesi" id="2580">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Charles Batchelor" target="Francis Upton" id="2581">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="John Yudkin" target="Joel Mandelstam" id="2583">
         <attvalues>
           <attvalue for="4" value="inspired" />
@@ -21705,21 +21467,6 @@
           <attvalue for="4" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Andrey Markov" target="Abram Besicovitch" id="2909">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Harald Bohr" target="Abram Besicovitch" id="2910">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="G.H. Hardy" target="Abram Besicovitch" id="2911">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="Hideki Yukawa" target="Shin'ichirō Tomonaga" id="2912">
         <attvalues>
           <attvalue for="4" value="inspired" />
@@ -22657,11 +22404,6 @@
         </attvalues>
       </edge>
       <edge source="Christopher Polhem" target="Emanuel Swedenborg" id="3109">
-        <attvalues>
-          <attvalue for="4" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Achyuta Pisharati" target="Melpathur Narayana Bhattathiri" id="3110">
         <attvalues>
           <attvalue for="4" value="inspired" />
         </attvalues>
