@@ -1,0 +1,461 @@
+≤<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 100 - EPISTEME AI</title>
+    <link rel="icon" type="image/png" href="RSlogo.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Variables */
+        :root {
+            --bg: #F5F5F7;
+            --surface: #FFFFFF;
+            --text-main: #1D1D1F;
+            --text-sec: #86868B;
+            --accent: #000000;
+            --glass: rgba(255, 255, 255, 0.7);
+            --line: rgba(0,0,0,0.06);
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-md: 0 12px 24px rgba(0,0,0,0.06);
+            --rank-gold: #FFD700;
+            --rank-silver: #C0C0C0;
+            --rank-bronze: #CD7F32;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            background: transparent; /* Changed to transparant for aurora */
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* --- BACKGROUND UI --- */
+        .aurora-container {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background: #FAFAFA;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.8;
+            animation: float 20s infinite ease-in-out;
+        }
+        .orb-1 { width: 60vw; height: 60vw; background: #E0E7FF; top: -20%; left: -10%; }
+        .orb-2 { width: 50vw; height: 50vw; background: #F0FDFA; bottom: -10%; right: -10%; animation-delay: -5s; }
+        .orb-3 { width: 40vw; height: 40vw; background: #F5F3FF; top: 40%; left: 40%; animation-delay: -10s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+        
+        /* Layout */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 24px 60px;
+        }
+        
+        /* Hero */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+            background: linear-gradient(180deg, #000 0%, #444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-sec);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Top List Grid */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .rank-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 60px 1fr 150px 100px;
+            align-items: center;
+            gap: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255,255,255,0.5);
+            cursor: default;
+        }
+        
+        .rank-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Rank Number */
+        .rank-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #E0E0E0;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .rank-card:nth-child(1) .rank-num { color: var(--rank-gold); font-size: 32px; text-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); }
+        .rank-card:nth-child(2) .rank-num { color: var(--rank-silver); font-size: 28px; }
+        .rank-card:nth-child(3) .rank-num { color: var(--rank-bronze); font-size: 26px; }
+
+        /* Scientist Info */
+        .scientist-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .scientist-meta {
+            font-size: 13px;
+            color: var(--text-sec);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .field-pill {
+            background: rgba(0,0,0,0.05);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Metrics */
+        .metric-block {
+            text-align: right;
+        }
+        
+        .metric-val {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: "SF Mono", "Menlo", monospace;
+            letter-spacing: -0.05em;
+        }
+        
+        .metric-lbl {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .score-bar-bg {
+            width: 100%;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+            min-width: 80px;
+        }
+        
+        .score-bar-fill {
+            height: 100%;
+            background: #000;
+            border-radius: 2px;
+        }
+
+        .loader {
+            width: 40px; height: 40px;
+            border: 3px solid #eee;
+            border-top-color: #000;
+            border-radius: 50%;
+            margin: 40px auto;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 100px 16px 40px;
+            }
+            
+            .hero-title { font-size: 2.5rem; }
+            
+            .rank-card {
+                grid-template-columns: 40px 1fr;
+                grid-template-rows: auto auto;
+                gap: 12px;
+                padding: 16px;
+                border-radius: 16px;
+            }
+            
+            .rank-num {
+                grid-row: 1 / 3;
+                font-size: 20px !important;
+                text-align: left;
+                align-self: start;
+                margin-top: 4px;
+            }
+            
+            .scientist-info {
+                grid-column: 2;
+            }
+            
+            .scientist-info h3 { font-size: 1.1rem; }
+            
+            .metric-block {
+                text-align: left;
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                grid-column: 2;
+                margin-top: 4px;
+            }
+            
+            .metric-block:last-child {
+                display: none; /* Hide connections on mobile to save space */
+            }
+            
+            .score-bar-bg { display: none; }
+        }
+        
+        /* Mobile Menu Interaction */
+        body.menu-open .page-container {
+            filter: blur(10px);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-header"></div>
+    
+    <div class="aurora-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="page-container">
+        <div class="hero-section">
+            <h1 class="hero-title">Classement d'Influence</h1>
+            <p class="hero-subtitle">
+                Les 100 figures les plus centrales de l'histoire scientifique, calculées par l'algorithme PageRank.
+            </p>
+        </div>
+        
+        <div id="ranking-container" class="ranking-list">
+            <div class="loader"></div>
+            <div style="text-align: center; color: #888;">Analyse du graphe en cours...</div>
+        </div>
+    </div>
+    
+    <script src="header.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        async function loadAndProcessGraph() {
+            const container = document.getElementById('ranking-container');
+            const loaderStatus = container.querySelector('div[style]');
+            
+            try {
+                // 1. Fetch GEXF
+                loaderStatus.innerHTML = "Chargement du graphe...";
+                const response = await fetch('scientist_graph.gexf');
+                if (!response.ok) throw new Error("GEXF introuvable");
+                const text = await response.text();
+                
+                // 2. Parse XML
+                loaderStatus.innerHTML = "Analyse de la structure...";
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(text, "text/xml");
+                
+                // 3. Extract Nodes (Map for quick access)
+                const nodes = new Map();
+                const nodeElements = xmlDoc.querySelectorAll("node");
+                
+                nodeElements.forEach(el => {
+                    const id = el.getAttribute("id");
+                    const label = el.getAttribute("label") || id;
+                    
+                    // Extract attributes (correct mapping: 0=depth, 1=field)
+                    let field = "Inconnu", birth = "", death = "";
+                    el.querySelectorAll("attvalue").forEach(att => {
+                        const val = att.getAttribute("value");
+                        const attId = att.getAttribute("for") || att.getAttribute("id");
+                        
+                        // Correct mapping based on GEXF structure
+                        if (attId === "1" || attId === "field") field = val;
+                        // birth_year and death_year don't exist in this GEXF, skip them
+                    });
+                    
+                    nodes.set(id, {
+                        id, label, field, birth, death,
+                        inDegree: 0,
+                        outDegree: 0,
+                        pageRank: 1.0, // Initial PR
+                        edgesFrom: [], // Adjacency List for PR
+                        edgesTo: []    // Inverse Adjacency
+                    });
+                });
+                
+                // 4. Extract Edges
+                const edgeElements = xmlDoc.querySelectorAll("edge");
+                const edgesCount = edgeElements.length;
+                
+                edgeElements.forEach(el => {
+                    const source = el.getAttribute("source");
+                    const target = el.getAttribute("target");
+                    
+                    if (nodes.has(source) && nodes.has(target)) {
+                        const sNode = nodes.get(source);
+                        const tNode = nodes.get(target);
+                        
+                        sNode.outDegree++;
+                        tNode.inDegree++;
+                        
+                        sNode.edgesFrom.push(target);
+                        tNode.edgesTo.push(source);
+                    }
+                });
+                
+                // 5. Calculate PageRank (Iterative)
+                loaderStatus.innerHTML = `Calcul PageRank... (0/20)`;
+                // Damping factor d is usually 0.85
+                const d = 0.85;
+                const N = nodes.size;
+                const iterations = 20;
+                
+                for (let i = 0; i < iterations; i++) {
+                     // Check UI update every 5 iterations to avoid freeze
+                    if (i % 5 === 0) {
+                        loaderStatus.innerHTML = `Calcul PageRank... (${i}/${iterations})`;
+                        await new Promise(r => setTimeout(r, 0)); // Yield to UI
+                    }
+
+                    const newRanks = new Map();
+                    
+                    nodes.forEach((node, id) => {
+                        let rankSum = 0;
+                        
+                        // PR(A) = (1-d) + d * sum(PR(T)/C(T))
+                        // Where T are nodes linking TO A
+                        // C(T) is out-degree of T
+                        
+                        node.edgesTo.forEach(sourceId => {
+                            const sourceNode = nodes.get(sourceId);
+                            if (sourceNode.outDegree > 0) {
+                                rankSum += sourceNode.pageRank / sourceNode.outDegree;
+                            }
+                        });
+                        
+                        const pr = (1 - d) + (d * rankSum);
+                        newRanks.set(id, pr);
+                    });
+                    
+                    // Update ranks
+                    newRanks.forEach((val, id) => {
+                        nodes.get(id).pageRank = val;
+                    });
+                }
+                
+                // 6. Sort and Render
+                const sortedScientists = Array.from(nodes.values())
+                    .sort((a, b) => b.pageRank - a.pageRank)
+                    .slice(0, 100);
+                
+                const maxScore = sortedScientists[0].pageRank;
+                
+                container.innerHTML = '';
+                
+                sortedScientists.forEach((person, index) => {
+                    const scorePct = (person.pageRank / maxScore) * 100;
+                    const degree = person.inDegree + person.outDegree; // Total connections
+                    
+                    const card = document.createElement('div');
+                    card.className = 'rank-card';
+                    card.style.animation = `fadeIn 0.5s ease backwards ${index * 0.05}s`;
+                    
+                    // Format dates logic
+                    let dateDisplay = "";
+                    if (person.birth && person.birth !== "" && person.birth !== "?") {
+                        const death = (person.death && person.death !== "" && person.death !== "?") ? person.death : "";
+                        dateDisplay = `<span>${person.birth} - ${death}</span>`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="rank-num">#${index + 1}</div>
+                        
+                        <div class="scientist-info">
+                            <h3>${person.label}</h3>
+                            <div class="scientist-meta">
+                                <span class="field-pill">${person.field}</span>
+                                ${dateDisplay}
+                            </div>
+                        </div>
+                        
+                        <div class="metric-block">
+                            <div class="metric-val">${person.pageRank.toFixed(2)}</div>
+                            <div class="metric-lbl">PageRank</div>
+                        </div>
+                        
+                        <div class="metric-block" style="text-align:right;">
+                             <div class="metric-val">${degree}</div>
+                             <div class="metric-lbl">Connexions</div>
+                             <div class="score-bar-bg">
+                                <div class="score-bar-fill" style="width: ${scorePct}%"></div>
+                             </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+                
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = 
+                    `<div style="text-align:center; color:#FF3B30; padding:40px;">
+                        <b>Erreur de chargement</b><br>
+                        ${err.message}<br><br>
+                        Vérifiez que le fichier <code>scientist_graph.gexf</code> est présent.
+                    </div>`;
+            }
+        }
+        
+        // Start process
+        loadAndProcessGraph();
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
