@@ -41,7 +41,7 @@ La page affiche en temps réel :
 - 🟣 **Nouvelles arêtes** entre scientifiques
 - 📈 **Progression** (tous les 10 nœuds)
 - 💾 **Checkpoints** automatiques (tous les 10 nœuds)
-- ❌ **Erreurs** LLM/réseau
+- ❌ **Erreurs** LLM/réseau (EPISTEME NETWORK)
 
 ## ⚙️ Configuration
 

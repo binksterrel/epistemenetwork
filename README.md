@@ -1,10 +1,10 @@
-# 🔬 RÉSEAU SCIENTIFIQUE
+# 🔬 EPISTEME NETWORK
 
-Un outil interactif pour **générer, visualiser et analyser** les connexions entre scientifiques à partir de leurs pages Wikipédia, propulsé par l'Intelligence Artificielle.
+Un outil interactif pour **générer, visualiser et analyser** les connexions entre scientifiques à partir de leurs pages Wikipédia, propulsé par **EPISTEME NETWORK**.
 
 ## 📖 Vue d'ensemble
 
-**Réseau Scientifique — Pipeline Data & IA (Dec 2025 - Jan 2026)**
+**EPISTEME NETWORK : RÉSEAU SCIENTIFIQUE — Pipeline Data & IA (Dec 2025 - Jan 2026)**
 
 Cartographie des influences scientifiques : Un outil interactif propulsé par l'IA qui connecte **~1 700 scientifiques** à travers les siècles (XIIe-XXIe) pour visualiser l'histoire des idées.
 

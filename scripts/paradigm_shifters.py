@@ -135,7 +135,7 @@ def main():
     
     G = load_graph(gexf_path)
     
-    print("\n🏆 TOP 20 DES RÉVOLUTIONNAIRES SCIENTIFIQUES (Analyse des Trous Structurels)")
+    print("\n🏆 EPISTEME NETWORK : TOP 20 DES RÉVOLUTIONNAIRES SCIENTIFIQUES (Analyse des Trous Structurels)")
     print("=" * 70)
     
     shifters = find_paradigm_shifters(G, top_n=20)

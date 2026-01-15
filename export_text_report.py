@@ -12,7 +12,7 @@ def export_report(filename="output/scientist_graph.gexf", output_txt="output/sci
     
     with open(output_txt, "w", encoding="utf-8") as f:
         f.write("="*60 + "\n")
-        f.write(f"RAPPORT D'INFLUENCE SCIENTIFIQUE\n")
+        f.write(f"RAPPORT EPISTEME NETWORK : INFLUENCE SCIENTIFIQUE\n")
         f.write(f"Nombre de scientifiques: {len(nodes)}\n")
         f.write("="*60 + "\n\n")
         

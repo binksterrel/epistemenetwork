@@ -1,0 +1,77 @@
+
+# 🔬 PROJET EPISTEME NETWORK : Cartographie de l'Histoire Scientifique
+
+## 📝 Présentation Générale
+
+**EPISTEME NETWORK** est un projet universitaire innovant développé dans le cadre de la licence MIASHS (L3, Semestre 2) pour le cours "Graphes et Open Data". 
+
+Il s'agit d'une plateforme interactive qui cartographie l'évolution des connaissances scientifiques à travers les siècles. En combinant l'Intelligence Artificielle générative (LLM) et la théorie des graphes, le projet visualise comment les idées se transmettent, qui a influencé qui, et comment les différentes disciplines scientifiques s'entrecroisent.
+
+Le résultat est un réseau dynamique de **~1 700 scientifiques** couvrant la période du XIIe au XXIe siècle, révélant les structures invisibles de notre héritage intellectuel.
+
+---
+
+## 🎯 Objectifs du Projet
+
+1.  **Visualiser l'Invisible** : Rendre tangibles les liens d'influence abstraits entre les penseurs (ex: comment Newton a influencé Einstein).
+2.  **Automatisation Intelligente** : Remplacer la construction manuelle fastidieuse de bases de données par une extraction automatique via IA.
+3.  **Analyse Structurelle** : Utiliser des métriques mathématiques pour identifier objectivement les figures centrales de la science, au-delà de leur simple célébrité.
+
+---
+
+## 🛠️ Méthodologie & Technologies
+
+Le projet repose sur un pipeline de données sophistiqué ("ETL") :
+
+### 1. Collecte de Données (Extraction)
+*   **Sources** : Wikipédia (pour les biographies non structurées) et Wikidata (pour la validation).
+*   **Technique** : Scraping intelligent via API, intégrant une stratégie de cache pour la performance.
+
+### 2. Analyse par Intelligence Artificielle (Transformation)
+*   Chaque biographie est analysée par des modèles de langage avancés (**Llama 3 via Groq**, Mistral, ou OpenAI).
+*   **Tâches de l'IA** :
+    *   Extraire les relations "A a influencé B".
+    *   Classifier les scientifiques par domaine (Physique, Mathématiques, Informatique...).
+    *   Extraire les dates de naissance et de mort.
+*   **Validation** : Vérification croisée des données pour assurer la cohérence chronologique (ex: éviter qu'un scientifique du XXe siècle n'influence un savant du XVIIIe).
+
+### 3. Visualisation (Chargement)
+*   Génération d'une interface web interactive en **HTML5 / CSS3 / JavaScript**.
+*   Utilisation de la bibliothèque **vis-network** pour le rendu physique du graphe (les nœuds s'attirent ou se repoussent selon leurs liens).
+
+---
+
+## 🌟 Fonctionnalités Clés
+
+### 🕸️ Le Graphe Interactif (`graph.html`)
+L'interface principale permet d'explorer le réseau comme une carte :
+*   **Zoom & Navigation** : Plongez au cœur des clusters de chaque discipline.
+*   **Filtres Temporels** : Une frise chronologique permet de voir l'évolution de la science année par année (1100-2000).
+*   **Recherche** : Trouvez instantanément n'importe quel scientifique.
+*   **Communautés** : Les couleurs identifient automatiquement les "écoles de pensée" ou disciplines proches.
+
+### 🏆 Le Top 100 (`top.html`)
+Un classement objectif basé sur l'algorithmie, non sur l'opinion :
+*   **PageRank** : Identifie les scientifiques les plus influents globalement (ceux cités par d'autres figures importantes).
+*   **Betweenness (Centralité d'intermédiarité)** : Révèle les "passeurs de savoir", ces figures qui font le pont entre deux disciplines ou époques différentes (les connecteurs indispensables).
+
+### ℹ️ À Propos (`about.html` / `index.html`)
+Documentation du projet, méthodologie et accès aux statistiques globales du réseau.
+
+---
+
+## 📊 Quelques Chiffres
+
+*   **1 700+** Scientifiques indexés.
+*   **2 500+** Liens d'influence vérifiés.
+*   **10 Siècles** d'histoire couverts.
+*   **100%** de connexions (aucun nœud isolé grâce aux algorithmes de nettoyage).
+
+---
+
+## 👤 Auteur & Contexte
+
+**Auteur** : Terrel Nuentsa  
+**Cadre** : Université - Licence MIASHS (Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales)  
+**Cours** : Graphes et Open Data  
+**Période** : Décembre 2025 - Janvier 2026

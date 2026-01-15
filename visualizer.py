@@ -187,7 +187,7 @@ class GraphVisualizer:
     <meta name="theme-color" content="#FFFFFF">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>RÉSEAU SCIENTIFIQUE</title>
+    <title>EPISTEME NETWORK</title>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -690,7 +690,7 @@ class GraphVisualizer:
     
     <div id="loading" class="loading">
         <div class="loading-content">
-            <div class="loading-title">RÉSEAU SCIENTIFIQUE</div>
+            <div class="loading-title">EPISTEME NETWORK</div>
             <div class="progress-container">
                 <div id="progress-bar" class="progress-bar"></div>
             </div>

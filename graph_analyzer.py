@@ -12,7 +12,7 @@ class GraphAnalyzer:
             print("⚠️ Le graphe est vide, impossible d'analyser.")
             return {}
 
-        print("\n📊 ANALYSE DU RÉSEAU")
+        print("\n📊 EPISTEME NETWORK : ANALYSE DU RÉSEAU")
         print("=" * 50)
         
         results = {}

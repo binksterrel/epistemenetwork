@@ -8,7 +8,7 @@ import sys
 
 def main():
     print("="*60)
-    print("🔬 PROJET GRAPHE D'INFLUENCE SCIENTIFIQUE")
+    print("🔬 EPISTEME NETWORK : PROJET GRAPHE D'INFLUENCE SCIENTIFIQUE")
     print("="*60)
     
     # 0. Préparation

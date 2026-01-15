@@ -121,7 +121,7 @@ def main():
         tradition = classify_tradition(node)
         tradition_nodes[tradition].append(node)
     
-    print("\n📊 COMPARAISON DES TRADITIONS SCIENTIFIQUES")
+    print("\n📊 EPISTEME NETWORK : COMPARAISON DES TRADITIONS SCIENTIFIQUES")
     print("=" * 80)
     
     # Analyze each tradition
