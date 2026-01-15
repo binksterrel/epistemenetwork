@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2025-12-31">
+  <meta lastmodifieddate="2026-01-15">
     <creator>NetworkX 3.2.1</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
@@ -3093,13 +3093,6 @@
           <attvalue for="0" value="7" />
           <attvalue for="1" value="Mathematics" />
           <attvalue for="2" value="1768" />
-        </attvalues>
-      </node>
-      <node id="Henri Victor Regnault" label="Henri Victor Regnault">
-        <attvalues>
-          <attvalue for="0" value="7" />
-          <attvalue for="1" value="Physics" />
-          <attvalue for="2" value="1810" />
         </attvalues>
       </node>
       <node id="Michael Faraday" label="Michael Faraday">
@@ -6460,11 +6453,6 @@
           <attvalue for="2" value="1903" />
         </attvalues>
       </node>
-      <node id="Rene Descartes" label="Rene Descartes">
-        <attvalues>
-          <attvalue for="2" value="1596" />
-        </attvalues>
-      </node>
       <node id="Galileo Galilei" label="Galileo Galilei">
         <attvalues>
           <attvalue for="2" value="1564" />
@@ -6678,11 +6666,6 @@
       <node id="Alexandre Lacassagne" label="Alexandre Lacassagne">
         <attvalues>
           <attvalue for="2" value="1843" />
-        </attvalues>
-      </node>
-      <node id="Gustave le Bon" label="Gustave le Bon">
-        <attvalues>
-          <attvalue for="2" value="1841" />
         </attvalues>
       </node>
       <node id="Everett Rogers" label="Everett Rogers">
@@ -7812,11 +7795,6 @@
           <attvalue for="2" value="1854" />
         </attvalues>
       </node>
-      <node id="Theodore Von Karman" label="Theodore Von Karman">
-        <attvalues>
-          <attvalue for="2" value="1881" />
-        </attvalues>
-      </node>
       <node id="Albert Betz" label="Albert Betz">
         <attvalues>
           <attvalue for="2" value="1885" />
@@ -8378,11 +8356,6 @@
         </attvalues>
       </node>
       <node id="Wojciech Samotij" label="Wojciech Samotij" />
-      <node id="Gabor Szegő" label="Gabor Szegő">
-        <attvalues>
-          <attvalue for="2" value="1895" />
-        </attvalues>
-      </node>
       <node id="Marietta Kövesi" label="Marietta Kövesi">
         <attvalues>
           <attvalue for="2" value="1903" />
@@ -9056,6 +9029,8 @@
       <node id="Henri Victor Régnault" label="Henri Victor Régnault">
         <attvalues>
           <attvalue for="2" value="1810" />
+          <attvalue for="0" value="7" />
+          <attvalue for="1" value="Physics" />
         </attvalues>
       </node>
       <node id="Johann Christian Poggendorff" label="Johann Christian Poggendorff">
@@ -13125,12 +13100,12 @@
           <attvalue for="6" value="{('Justus Liebig', 'Marie Liebig'): {'relation': 'inspired', 'id': '1760'}}" />
         </attvalues>
       </edge>
-      <edge source="Justus von Liebig" target="Henri Victor Regnault" id="626">
+      <edge source="Justus von Liebig" target="Robert Wilhelm Bunsen" id="618">
         <attvalues>
           <attvalue for="5" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Justus von Liebig" target="Robert Wilhelm Bunsen" id="618">
+      <edge source="Justus von Liebig" target="Henri Victor Régnault" id="626">
         <attvalues>
           <attvalue for="5" value="inspired" />
         </attvalues>
@@ -17141,11 +17116,6 @@
           <attvalue for="5" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Gabriel Tarde" target="Gustave le Bon" id="1667">
-        <attvalues>
-          <attvalue for="5" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="Gabriel Tarde" target="Sigmund Freud" id="1669">
         <attvalues>
           <attvalue for="5" value="inspired" />
@@ -17162,6 +17132,11 @@
         </attvalues>
       </edge>
       <edge source="Gabriel Tarde" target="Félix Guattari" id="1672">
+        <attvalues>
+          <attvalue for="5" value="inspired" />
+        </attvalues>
+      </edge>
+      <edge source="Gabriel Tarde" target="Gustave Le Bon" id="1667">
         <attvalues>
           <attvalue for="5" value="inspired" />
         </attvalues>
@@ -18650,11 +18625,6 @@
           <attvalue for="5" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Ludwig Prandtl" target="Theodore Von Karman" id="2017">
-        <attvalues>
-          <attvalue for="5" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="Ludwig Prandtl" target="Albert Betz" id="2018">
         <attvalues>
           <attvalue for="5" value="inspired" />
@@ -18666,6 +18636,11 @@
         </attvalues>
       </edge>
       <edge source="Ludwig Prandtl" target="Adolf Busemann" id="2020">
+        <attvalues>
+          <attvalue for="5" value="inspired" />
+        </attvalues>
+      </edge>
+      <edge source="Ludwig Prandtl" target="Theodore von Kármán" id="2017">
         <attvalues>
           <attvalue for="5" value="inspired" />
         </attvalues>
@@ -19521,6 +19496,16 @@
       <edge source="René Descartes" target="Isaac Beeckman" id="380" />
       <edge source="René Descartes" target="Johannes Kepler" id="381" />
       <edge source="René Descartes" target="Ibn al-Haytham" id="385" />
+      <edge source="René Descartes" target="Isaac Newton" id="2689">
+        <attvalues>
+          <attvalue for="5" value="inspired" />
+        </attvalues>
+      </edge>
+      <edge source="René Descartes" target="John Wallis" id="2690">
+        <attvalues>
+          <attvalue for="5" value="inspired" />
+        </attvalues>
+      </edge>
       <edge source="Ibn Tufayl" target="Baruch Spinoza" id="2235">
         <attvalues>
           <attvalue for="5" value="inspired" />
@@ -21052,16 +21037,6 @@
           <attvalue for="5" value="inspired" />
         </attvalues>
       </edge>
-      <edge source="Rene Descartes" target="Isaac Newton" id="2689">
-        <attvalues>
-          <attvalue for="5" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Rene Descartes" target="John Wallis" id="2690">
-        <attvalues>
-          <attvalue for="5" value="inspired" />
-        </attvalues>
-      </edge>
       <edge source="Galileo Galilei" target="Isaac Newton" id="2691">
         <attvalues>
           <attvalue for="5" value="inspired" />
@@ -22104,6 +22079,11 @@
           <attvalue for="5" value="inspired" />
         </attvalues>
       </edge>
+      <edge source="Gábor Szegő" target="John von Neumann" id="2940">
+        <attvalues>
+          <attvalue for="5" value="inspired" />
+        </attvalues>
+      </edge>
       <edge source="George Pólya" target="Peter Lax" id="2925">
         <attvalues>
           <attvalue for="5" value="inspired" />
@@ -22170,11 +22150,6 @@
         </attvalues>
       </edge>
       <edge source="Stefan Mazurkiewicz" target="Kazimierz Kuratowski" id="2938">
-        <attvalues>
-          <attvalue for="5" value="inspired" />
-        </attvalues>
-      </edge>
-      <edge source="Gabor Szegő" target="John von Neumann" id="2940">
         <attvalues>
           <attvalue for="5" value="inspired" />
         </attvalues>
