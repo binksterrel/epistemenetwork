@@ -4,7 +4,7 @@ Un outil interactif pour **générer, visualiser et analyser** les connexions en
 
 ## 📖 Vue d'ensemble
 
-**EPISTEME NETWORK : RÉSEAU SCIENTIFIQUE — Pipeline Data & IA (Dec 2025 - Jan 2026)**
+**EPISTEME NETWORK : RÉSEAU SCIENTIFIQUE — Pipeline Data & IA**
 
 Cartographie des influences scientifiques : Un outil interactif propulsé par l'IA qui connecte **~1 700 scientifiques** à travers les siècles (XIIe-XXIe) pour visualiser l'histoire des idées.
 
