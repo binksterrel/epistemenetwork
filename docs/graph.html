@@ -1440,12 +1440,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.dispatchEvent(new CustomEvent('headerLoaded'));
 });
 
-// Mobile Sidebar Toggle Logic
-    // Initial icon creation
-    if (window.lucide) {
-        lucide.createIcons();
-    }
-});
+// Initialize Lucide icons
+if (window.lucide) {
+    lucide.createIcons();
+}
+
 
 </script>
 </body>
