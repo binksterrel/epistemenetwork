@@ -174,145 +174,237 @@
             }
         }
         
-        /* Mobile Optimizations - Accordion Design */
+        /* Mobile Optimizations - Premium UX/UI */
         @media (max-width: 768px) {
-            /* Enable scrolling on mobile */
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+            
             body {
                 overflow: auto !important;
                 height: auto;
+                background: #fafafa;
             }
             
             .main-grid {
                 margin-top: 0 !important;
-                padding-bottom: 40px;
+                padding-bottom: 0;
                 height: auto !important;
                 gap: 0;
+                display: block;
             }
             
-            /* Hide sidebars completely */
+            /* Hide sidebars */
             .sidebar-left,
-            .sidebar-right {
+            .sidebar-right,
+            .footer {
                 display: none !important;
             }
             
-            /* Content takes full width */
+            /* Full-width content */
             .content-center {
                 overflow-y: visible !important;
-                padding: 80px 20px 40px !important;
+                padding: 0 !important;
                 grid-column: 1 / -1 !important;
+                max-width: 100%;
             }
             
-            /* Typography - Compact */
-            h1 {
-                font-size: 1.75rem !important;
-                line-height: 1.2;
-                margin-bottom: 16px;
-                text-align: center !important;
+            /* Hero Section - Immersive */
+            .content-center > h1 {
+                position: sticky;
+                top: 60px;
+                z-index: 100;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 24px 20px 20px;
+                margin: 0 0 0 0 !important;
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+                text-align: left !important;
+                font-weight: 700;
+                border-bottom: 1px solid rgba(0,0,0,0.06);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             }
             
-            /* Intro paragraph */
+            /* Intro - Compact */
             .content-center > p:first-of-type {
-                font-size: 15px !important;
+                padding: 24px 20px !important;
+                font-size: 16px !important;
                 line-height: 1.6;
-                text-align: center;
-                margin-bottom: 32px !important;
-                color: #666;
+                text-align: left !important;
+                margin: 0 !important;
+                color: #555;
+                background: #fff;
             }
             
-            /* Stats inline - Horizontal scroll */
+            /* Stats - Modern Cards */
             .content-center > div[style*="grid-template-columns"] {
-                display: flex !important;
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
                 gap: 12px !important;
-                margin-bottom: 40px !important;
-                overflow-x: auto;
-                padding-bottom: 8px;
-                -webkit-overflow-scrolling: touch;
+                padding: 20px !important;
+                margin: 0 !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             }
             
             .content-center > div[style*="grid-template-columns"] > div {
-                min-width: 140px;
-                flex-shrink: 0;
-                padding: 16px !important;
-                border-radius: 12px !important;
+                padding: 20px 12px !important;
+                border-radius: 16px !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                text-align: center;
+                box-shadow: none !important;
             }
             
             .content-center > div[style*="grid-template-columns"] > div > div:first-child {
-                font-size: 1.75rem !important;
+                font-size: 2rem !important;
+                font-weight: 800 !important;
+                color: #fff !important;
+                margin-bottom: 4px;
             }
             
-            /* Accordion Sections */
+            .content-center > div[style*="grid-template-columns"] > div > div:last-child {
+                font-size: 10px !important;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: rgba(255, 255, 255, 0.9) !important;
+                font-weight: 600 !important;
+            }
+            
+            /* Section Headers - Sticky */
             h2 {
-                font-size: 1.1rem !important;
-                margin-top: 24px !important;
-                margin-bottom: 16px !important;
-                padding: 16px;
-                background: rgba(0,0,0,0.02);
-                border-radius: 12px;
-                cursor: pointer;
+                position: sticky;
+                top: 124px;
+                z-index: 99;
+                font-size: 1rem !important;
+                margin: 0 !important;
+                padding: 16px 20px !important;
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(0,0,0,0.06);
+                cursor: default !important;
                 user-select: none;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #000 !important;
             }
             
             h2 i {
-                width: 18px !important;
-                height: 18px !important;
+                width: 20px !important;
+                height: 20px !important;
+                opacity: 0.6;
             }
             
-            /* Pipeline steps - Compact cards */
+            /* Pipeline Steps - Premium Cards */
             .pipeline-step {
-                padding: 16px !important;
-                margin-bottom: 12px !important;
-                border-radius: 12px !important;
+                padding: 0 !important;
+                margin: 0 0 1px 0 !important;
+                border-radius: 0 !important;
                 background: #fff !important;
-                border: 1px solid rgba(0,0,0,0.06) !important;
+                border: none !important;
+                border-bottom: 1px solid rgba(0,0,0,0.04) !important;
+            }
+            
+            .pipeline-step > div:first-child {
+                padding: 20px;
             }
             
             .pipeline-step h3 {
-                font-size: 0.95rem !important;
-                margin-bottom: 8px !important;
+                font-size: 1rem !important;
+                margin-bottom: 12px !important;
+                font-weight: 600;
+                color: #000;
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                gap: 10px;
             }
             
             .pipeline-step p {
-                font-size: 14px !important;
-                line-height: 1.6;
-                color: #666;
+                font-size: 15px !important;
+                line-height: 1.7;
+                color: #555;
+                margin: 0;
             }
             
             .pipeline-step i {
-                opacity: 0.3 !important;
+                opacity: 0.4 !important;
+                width: 18px;
+                height: 18px;
             }
             
-            /* Code snippets */
+            /* Code blocks */
             code {
-                font-size: 12px !important;
-                padding: 2px 6px !important;
+                font-size: 13px !important;
+                padding: 3px 8px !important;
+                background: rgba(0,0,0,0.04) !important;
+                border-radius: 6px;
+                font-family: 'SF Mono', Monaco, monospace;
             }
             
             /* Lists */
             ul {
-                padding-left: 20px !important;
-                font-size: 14px !important;
+                padding: 20px 20px 20px 40px !important;
+                margin: 0 !important;
+                font-size: 15px !important;
+                line-height: 1.7;
+                background: #fff;
             }
             
             ul li {
-                margin-bottom: 8px;
+                margin-bottom: 12px;
+                color: #555;
+            }
+            
+            ul li b {
+                color: #000;
+                font-weight: 600;
+            }
+            
+            /* Blockquote */
+            p[style*="margin-top: 60px"] {
+                margin: 0 !important;
+                padding: 24px 20px !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                border: none !important;
+                border-radius: 0 !important;
+                color: #fff !important;
+                font-size: 15px !important;
+                line-height: 1.7;
+                font-style: normal !important;
+            }
+            
+            p[style*="margin-top: 60px"] b {
+                color: #fff !important;
+                font-weight: 700;
             }
             
             /* Tech pills */
             .tech-pill {
-                font-size: 11px !important;
-                padding: 4px 10px !important;
+                font-size: 12px !important;
+                padding: 6px 12px !important;
+                background: rgba(0,0,0,0.05) !important;
+                border-radius: 8px;
+                font-weight: 600;
             }
             
-            /* Footer */
-            .footer {
-                flex-direction: column;
-                gap: 12px;
-                padding: 24px 20px !important;
-                text-align: center;
-                font-size: 12px !important;
+            .tech-stack {
+                padding: 20px !important;
+                background: #fff;
+            }
+            
+            /* Spacing adjustments */
+            .content-center > h2:first-of-type {
+                margin-top: 0 !important;
+            }
+            
+            /* Remove extra padding from sections */
+            .content-center > * {
+                border-radius: 0 !important;
             }
         }
     </style>
