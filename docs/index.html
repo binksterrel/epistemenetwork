@@ -284,84 +284,122 @@
             }
             
             .tagline {
-                font-size: 16px;
-                line-height: 1.5;
-                margin-bottom: 40px;
-                color: #555;
+                font-size: 17px; /* Slightly larger for better readability */
+                line-height: 1.6; /* More breathing room */
+                margin-bottom: 48px; /* More space before CTA */
+                color: #444; /* Darker for better contrast */
                 max-width: 100%;
-                padding: 0 8px;
+                padding: 0;
             }
             
-            /* Buttons */
+            /* Buttons - Prominent CTA */
             .btn-main {
-                padding: 16px 32px;
+                padding: 20px 48px; /* Larger touch target */
                 font-size: 16px;
+                font-weight: 600;
                 width: 100%;
+                max-width: 320px; /* Constrain width for better aesthetics */
                 justify-content: center;
                 border-radius: 100px;
                 box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
+                transition: all 0.3s ease;
             }
             
-            /* SAFE ZONE CONTAINER */
+            .btn-main:active {
+                transform: scale(0.98); /* Tactile feedback */
+            }
+            
+            /* SAFE ZONE CONTAINER - Hero Section */
             .content-center {
-                padding: 40px 24px;
+                padding: 80px 24px; /* Increased vertical padding for breathing room */
                 min-height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                align-items: center;
                 border-top: none;
             }
             
-            /* Stats Row - VERTICAL STACK for cleaner mobile look */
+            /* Stats Row - 2x2 GRID for compact mobile look */
             .sidebar-left {
                 order: 2;
                 padding: 0 24px;
-                flex-direction: column; /* Vertical Stack */
-                flex-wrap: nowrap;
-                overflow-x: visible;
-                gap: 12px;
+                display: grid; /* Changed from flex to grid */
+                grid-template-columns: repeat(2, 1fr); /* 2 columns */
+                gap: 16px; /* Consistent gap */
                 background: transparent;
             }
             
             .sidebar-left .stat-block {
-                min-width: 100%;
-                width: 100%;
-                flex: 1;
-                padding: 24px;
+                width: 100%; /* Full width of grid cell */
+                padding: 24px 20px; /* Balanced padding */
                 background: #fff;
                 border-radius: 20px;
                 border: 1px solid rgba(0,0,0,0.05);
                 box-shadow: 0 4px 20px rgba(0,0,0,0.02);
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
+                flex-direction: column; /* Stack label above value */
+                align-items: flex-start; /* Left-align content */
+                justify-content: center;
+                text-align: left;
             }
             
-            .stat-val { font-size: 24px; letter-spacing: -0.02em; }
-            .stat-lbl { font-size: 12px; opacity: 0.6; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0; }
+            .stat-val { 
+                font-size: 28px; /* Larger for impact */
+                letter-spacing: -0.02em; 
+                margin-top: 8px; /* Space from label */
+                order: 2; /* Value below label */
+            }
+            
+            .stat-lbl { 
+                font-size: 11px; 
+                opacity: 0.6; 
+                letter-spacing: 0.08em; /* More spacing for uppercase */
+                text-transform: uppercase; 
+                order: 1; /* Label above value */
+            }
             
             /* Features - Cards Stack */
             .sidebar-right {
                 padding: 0 24px;
-                gap: 16px;
+                gap: 20px; /* More space between cards */
                 background: transparent;
-                margin-bottom: 24px;
+                margin-bottom: 32px; /* More space before footer */
             }
             
             .sidebar-right .feature-item {
                 flex: 1;
                 min-width: 100%;
-                padding: 24px;
+                padding: 28px 24px; /* More generous padding */
                 background: #fff;
                 border-radius: 24px;
                 border: 1px solid rgba(0,0,0,0.05);
                 box-shadow: 0 4px 20px rgba(0,0,0,0.02);
             }
             
+            .sidebar-right .feature-item i {
+                width: 24px; /* Larger icons */
+                height: 24px;
+                margin-bottom: 12px;
+            }
+            
+            .sidebar-right .feature-item h3 {
+                font-size: 15px; /* Slightly larger */
+                margin-bottom: 6px;
+                font-weight: 600;
+            }
+            
+            .sidebar-right .feature-item p {
+                font-size: 13px;
+                line-height: 1.6;
+                color: #666;
+            }
+            
+            /* Footer - Simplified */
             .footer {
                 flex-direction: column;
                 gap: 16px;
-                padding: 40px 24px;
+                padding: 32px 24px; /* Reduced padding */
                 text-align: center;
                 background: transparent;
                 border-top: none;
