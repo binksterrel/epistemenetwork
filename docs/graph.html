@@ -483,20 +483,23 @@
                 width: 100%;
                 left: 0;
                 right: 0;
-                bottom: 24px;
-                flex-direction: row; /* Horizontal on mobile */
-                justify-content: center; /* Center buttons */
-                align-items: flex-end;
+                bottom: 50px; /* Moved up for better reach */
+                flex-direction: column; /* Stack vertically: Filter then Buttons (due to DOM order) */
+                justify-content: flex-end;
+                align-items: center; /* Center horizontally */
                 padding: 0 24px;
-                pointer-events: none; /* Let clicks pass through container */
+                pointer-events: none;
+                gap: 16px;
             }
             
             .floating-actions > * {
-                pointer-events: all; /* Re-enable pointer events for children */
+                pointer-events: all;
             }
 
             .filter-control {
-                display: none; /* Hide node count slider on mobile to save space */
+                display: flex; /* Show filter on mobile */
+                width: auto; /* Let it size naturally */
+                max-width: 100%;
             }
         }
         
