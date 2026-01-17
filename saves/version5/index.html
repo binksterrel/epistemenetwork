@@ -429,6 +429,11 @@
                 display: none !important;
             }
             
+            /* Hide "Albert" on mobile to save space */
+            .hide-mobile {
+                display: none;
+            }
+            
             /* Features - Cards Stack */
             .sidebar-right {
                 padding: 0 24px;
@@ -509,7 +514,7 @@
         <aside class="sidebar-left border-r">
             <div class="stat-block">
                 <span class="stat-lbl">Point de départ</span>
-                <span class="stat-val">Albert Einstein</span>
+                <span class="stat-val"><span class="hide-mobile">Albert </span>Einstein</span>
             </div>
             <div class="stat-block">
                 <span class="stat-lbl">Indexé</span>
