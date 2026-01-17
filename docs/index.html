@@ -274,9 +274,9 @@
             }
             
             .main-grid {
-                margin-top: 60px;
-                gap: 24px;
-                padding-bottom: 40px;
+                margin-top: 0 !important; /* Remove top margin to eliminate gap */
+                gap: 0; /* Remove gap between sections */
+                padding-bottom: 0;
             }
             
             /* Typography Scale - Premium */
@@ -347,7 +347,7 @@
             
             /* SAFE ZONE CONTAINER - Hero Section */
             .content-center {
-                padding: 100px 24px 80px; /* More top padding, balanced bottom */
+                padding: 60px 24px; /* Balanced padding, accounting for header */
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
