@@ -472,12 +472,90 @@
             color: white;
             border-color: #18181B;
         }
+
+        /* Mobile Sidebar Toggle */
+        .sidebar-toggle {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1000;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: none; /* Hidden on desktop */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #27272A;
+        }
+
+        .sidebar-toggle:hover, .sidebar-toggle.active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            color: #0A0A0A;
+        }
+
+        .sidebar-toggle.active {
+            background: #18181B;
+            color: white;
+            border-color: #18181B;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: flex; /* Show toggle on mobile */
+            }
+
+            .sidebar {
+                transform: translateX(-120%) translateY(-50%); /* Hidden by default */
+                left: 24px;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .sidebar.active {
+                transform: translateX(0) translateY(-50%);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .floating-actions {
+                width: 100%;
+                left: 0;
+                right: 0;
+                bottom: 24px;
+                flex-direction: row; /* Horizontal on mobile */
+                justify-content: center; /* Center buttons */
+                align-items: flex-end;
+                padding: 0 24px;
+                pointer-events: none; /* Let clicks pass through container */
+            }
+            
+            .floating-actions > * {
+                pointer-events: all; /* Re-enable pointer events for children */
+            }
+
+            .filter-control {
+                display: none; /* Hide node count slider on mobile to save space */
+            }
+        }
         
     </style>
 </head>
 <body>
     
     <div id="app-header"></div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle Sidebar">
+        <i data-lucide="menu"></i>
+    </button>
     
     <!-- Aurora Background -->
     <div class="aurora-container">
@@ -1408,6 +1486,44 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Dispatch custom event to notify that header is ready
     window.dispatchEvent(new CustomEvent('headerLoaded'));
+});
+
+// Mobile Sidebar Toggle Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+            
+            // Toggle icon
+            const icon = toggleBtn.querySelector('i');
+            // We can rely on css or add logic here.
+            // For now, let's just create icons again to ensure proper rendering
+            if (window.lucide) {
+                setTimeout(() => lucide.createIcons(), 0);
+            }
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 && 
+                sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                !toggleBtn.contains(e.target)) {
+                
+                sidebar.classList.remove('active');
+                toggleBtn.classList.remove('active');
+            }
+        });
+    }
+    
+    // Initial icon creation for the new button
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 });
 
 </script>
