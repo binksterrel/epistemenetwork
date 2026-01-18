@@ -266,225 +266,85 @@
         }
 
         /* Mobile Landscape */
+        /* Mobile Landscape & Portrait - HERO ONLY */
         @media (max-width: 768px) {
-            /* Enable scrolling on mobile */
+            /* Enable scrolling but kept minimal */
             body {
-                overflow: auto !important;
-                height: auto;
+                overflow: hidden !important; /* Lock scroll to focus on CTA */
+                height: 100vh;
+                position: fixed;
+                width: 100%;
             }
             
             .main-grid {
-                margin-top: 0 !important; /* Remove top margin to eliminate gap */
-                gap: 0; /* Remove gap between sections */
-                padding-bottom: 0;
-            }
-            
-            /* Typography Scale - Premium */
-            h1 { 
-                font-size: clamp(3rem, 10vw, 4rem) !important; /* Larger, more impactful */
-                line-height: 0.95;
-                margin-bottom: 32px;
-                letter-spacing: -0.05em; /* Tighter for modern look */
-                word-wrap: break-word;
-                hyphens: auto;
-                font-weight: 700; /* Bolder */
-                background: linear-gradient(135deg, #000 0%, #333 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            
-            .tagline {
-                font-size: 18px; /* Larger for impact */
-                line-height: 1.65;
-                margin-bottom: 56px; /* More space before CTA */
-                color: #555; /* Softer gray */
-                max-width: 90%;
-                padding: 0 16px;
-                text-align: center;
-                font-weight: 400;
-            }
-            
-            /* Buttons - Premium CTA */
-            .btn-main {
-                padding: 18px 40px; /* Reduced padding */
-                font-size: 16px; /* Slightly smaller */
-                font-weight: 700;
-                width: auto; /* Let it size to content */
-                max-width: 280px; /* Smaller max-width */
+                margin-top: 0 !important;
+                height: 100vh !important;
+                display: flex !important;
+                flex-direction: column;
                 justify-content: center;
-                border-radius: 100px;
-                background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-                box-shadow: 
-                    0 20px 60px -15px rgba(0,0,0,0.4),
-                    0 0 0 1px rgba(255,255,255,0.1) inset;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
+                align-items: center;
+                padding-bottom: 80px; /* Space for dock */
             }
             
-            .btn-main::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-                transition: left 0.5s;
-            }
-            
-            .btn-main:active::before {
-                left: 100%;
-            }
-            
-            .btn-main:active {
-                transform: scale(0.97);
-                box-shadow: 
-                    0 10px 30px -10px rgba(0,0,0,0.3),
-                    0 0 0 1px rgba(255,255,255,0.1) inset;
+            /* HIDE EVERYTHING except Main Content */
+            .sidebar-left,
+            .sidebar-right,
+            .footer,
+            .marquee-container {
+                display: none !important;
             }
             
             /* SAFE ZONE CONTAINER - Hero Section */
             .content-center {
-                padding: 60px 24px; /* Balanced padding, accounting for header */
-                min-height: 100vh;
+                border: none !important;
+                padding: 0 24px !important;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
                 align-items: center;
-                border-top: none;
-                position: relative;
-            }
-            
-            /* Subtle scroll indicator */
-            .content-center::after {
-                content: '';
-                position: absolute;
-                bottom: 40px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 24px;
-                height: 24px;
-                border-left: 2px solid rgba(0,0,0,0.2);
-                border-bottom: 2px solid rgba(0,0,0,0.2);
-                transform: translateX(-50%) rotate(-45deg);
-                animation: bounce 2s infinite;
-            }
-            
-            @keyframes bounce {
-                0%, 20%, 50%, 80%, 100% {
-                    transform: translateX(-50%) rotate(-45deg) translateY(0);
-                }
-                40% {
-                    transform: translateX(-50%) rotate(-45deg) translateY(-10px);
-                }
-                60% {
-                    transform: translateX(-50%) rotate(-45deg) translateY(-5px);
-                }
-            }
-            
-            /* Stats Row - 2x2 GRID for compact mobile look */
-            .sidebar-left {
-                order: 2;
-                padding: 0 24px;
-                margin-top: 60px; /* Space from hero section */
-                display: grid; /* Changed from flex to grid */
-                grid-template-columns: repeat(2, 1fr); /* 2 columns */
-                gap: 16px; /* Consistent gap */
-                background: transparent;
-            }
-            
-            .sidebar-left .stat-block {
-                width: 100%; /* Full width of grid cell */
-                padding: 24px 20px; /* Balanced padding */
-                background: #fff;
-                border-radius: 20px;
-                border: 1px solid rgba(0,0,0,0.05);
-                box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-                display: flex;
-                flex-direction: column; /* Stack label above value */
-                align-items: flex-start; /* Left-align content */
                 justify-content: center;
-                text-align: left;
-            }
-            
-            .stat-val { 
-                font-size: 28px; /* Larger for impact */
-                letter-spacing: -0.02em; 
-                margin-top: 8px; /* Space from label */
-                order: 2; /* Value below label */
-            }
-            
-            .stat-lbl { 
-                font-size: 11px; 
-                opacity: 0.6; 
-                letter-spacing: 0.08em; /* More spacing for uppercase */
-                text-transform: uppercase; 
-                order: 1; /* Label above value */
-            }
-            
-            /* Hide status indicator on mobile */
-            .sidebar-left > div[style*="margin-top: auto"] {
-                display: none !important;
-            }
-            
-            /* Hide "Albert" on mobile to save space */
-            .hide-mobile {
-                display: none;
-            }
-            
-            /* Features - Cards Stack */
-            .sidebar-right {
-                padding: 0 24px;
-                gap: 20px; /* More space between cards */
-                background: transparent;
-                margin-bottom: 32px; /* More space before footer */
-            }
-            
-            .sidebar-right .feature-item {
-                flex: 1;
-                min-width: 100%;
-                padding: 28px 24px; /* More generous padding */
-                background: #fff;
-                border-radius: 24px;
-                border: 1px solid rgba(0,0,0,0.05);
-                box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            }
-            
-            .sidebar-right .feature-item i {
-                width: 24px; /* Larger icons */
-                height: 24px;
-                margin-bottom: 12px;
-            }
-            
-            .sidebar-right .feature-item h3 {
-                font-size: 15px; /* Slightly larger */
-                margin-bottom: 6px;
-                font-weight: 600;
-            }
-            
-            .sidebar-right .feature-item p {
-                font-size: 13px;
-                line-height: 1.6;
-                color: #666;
-            }
-            
-            /* Footer - Simplified */
-            .footer {
-                flex-direction: column;
-                gap: 16px;
-                padding: 32px 24px; /* Reduced padding */
+                width: 100%;
                 text-align: center;
-                background: transparent;
-                border-top: none;
-                margin-top: 20px;
+                flex: 1; /* Take full space */
             }
             
-            .footer > div {
-                flex-wrap: wrap;
+            /* Typography Scale - Heroic */
+            h1 { 
+                font-size: 13vw !important; /* Massive relative to width */
+                line-height: 0.9;
+                margin-bottom: 24px;
+                letter-spacing: -0.04em;
+                text-transform: uppercase;
+                color: #111;
+                font-weight: 800; /* Extra bold */
+            }
+            
+            .tagline {
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 48px;
+                color: #666;
+                max-width: 320px;
+                font-weight: 400;
+            }
+            
+            /* Button - EXACT MATCH */
+            .btn-main {
+                background: #111;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+                padding: 16px 32px;
+                border-radius: 100px; /* Fully rounded */
+                width: auto;
+                min-width: 240px;
                 justify-content: center;
-                gap: 20px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            }
+            
+            /* Arrow Icon */
+            .btn-main svg {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
