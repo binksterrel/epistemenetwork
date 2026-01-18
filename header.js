@@ -105,159 +105,127 @@ document.addEventListener("DOMContentLoaded", function () {
             line-height: 1;
         }
 
-        /* Mobile Styles - Floating Pill + Drawer */
+        /* Mobile Styles - Bottom Dock Design (App-Like) */
         @media (max-width: 768px) {
+            /* Header Top - Just Logo */
             .app-header {
-                top: 16px;
-                left: 16px;
-                right: 16px;
-                width: calc(100% - 32px);
-                max-width: calc(100% - 32px);
-                height: 48px;
-                border-radius: 24px;
-                padding: 0 16px;
-                transform: none;
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
-                border: 1px solid rgba(255, 255, 255, 0.6);
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                max-width: 100%;
+                height: 60px;
+                border: none;
+                background: transparent; /* Transparent header */
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0 20px;
+                pointer-events: none; /* Let clicks pass through except on logo */
+                justify-content: center; /* Center logo */
             }
             
             .header-logo {
-                font-size: 12px;
-                z-index: 2002;
-                position: relative;
+                font-size: 14px;
+                pointer-events: auto;
+                background: rgba(255, 255, 255, 0.8);
+                padding: 8px 16px;
+                border-radius: 100px;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.4);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             }
             
             .header-logo::before {
-                width: 6px;
-                height: 6px;
+                display: none; /* Minimal logo */
             }
             
+            /* Hide Burger */
             .mobile-menu-btn {
+                display: none !important;
+            }
+            
+            /* Bottom Dock Navigation */
+            .header-nav {
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 48px);
+                max-width: 360px;
+                height: 64px;
+                background: rgba(255, 255, 255, 0.85); /* Glass look */
+                backdrop-filter: blur(40px); /* Heavy blur */
+                -webkit-backdrop-filter: blur(40px);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                box-shadow: 
+                    0 10px 30px -10px rgba(0, 0, 0, 0.15),
+                    0 4px 10px rgba(0, 0, 0, 0.05),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                border-radius: 20px;
+                padding: 0 8px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between; /* Spread items */
+                align-items: center;
+                gap: 0;
+                z-index: 2000;
+                pointer-events: auto;
+            }
+            
+            /* Dock Items */
+            .nav-link {
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                gap: 3px;
+                align-items: center;
+                height: 100%;
                 padding: 0;
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                background: rgba(0, 0, 0, 0.04);
-                z-index: 2002;
-                position: relative;
-                transition: all 0.3s;
-            }
-            
-            .mobile-menu-btn:active {
-                transform: scale(0.92);
-                background: rgba(0, 0, 0, 0.08);
-            }
-            
-            /* Burger Icon */
-            .burger-line {
-                width: 14px;
-                height: 1.5px;
-                background: #111;
-                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            }
-            
-            .mobile-menu-btn.active .burger-line:nth-child(1) {
-                transform: rotate(45deg) translate(3px, 3px);
-            }
-            .mobile-menu-btn.active .burger-line:nth-child(2) {
-                opacity: 0;
-                transform: translateX(-8px);
-            }
-            .mobile-menu-btn.active .burger-line:nth-child(3) {
-                transform: rotate(-45deg) translate(3px, -3px);
-            }
-            
-            /* Drawer Menu - Slide from Right */
-            .header-nav {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 280px;
-                height: 100vh;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(40px);
-                -webkit-backdrop-filter: blur(40px);
-                border-left: 1px solid rgba(255, 255, 255, 0.5);
-                padding: 80px 24px 40px;
-                flex-direction: column;
-                gap: 12px;
-                box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
-                transform: translateX(100%);
-                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                z-index: 2001;
-                pointer-events: all;
-            }
-            
-            .header-nav.open {
-                transform: translateX(0);
-            }
-            
-            /* Nav Links */
-            .nav-link {
-                width: 100%;
-                padding: 16px 20px;
-                font-size: 15px;
+                background: transparent !important;
+                border-radius: 0;
+                color: #999;
+                font-size: 10px;
                 font-weight: 500;
-                background: rgba(0, 0, 0, 0.03);
-                border-radius: 12px;
-                text-align: left;
+                gap: 4px;
+                transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            
+            .nav-link svg {
+                width: 24px;
+                height: 24px;
+                stroke-width: 2px;
                 transition: all 0.2s;
-                color: #666;
-                opacity: 0;
-                transform: translateX(20px);
-                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
             
-            /* Staggered animation when drawer opens */
-            .header-nav.open .nav-link {
-                opacity: 1;
-                transform: translateX(0);
+            .nav-text {
+                display: block; /* Show labels */
+                transform: translateY(0);
+                opacity: 0.8;
             }
             
-            .header-nav.open .nav-link:nth-child(1) { transition-delay: 0.05s; }
-            .header-nav.open .nav-link:nth-child(2) { transition-delay: 0.1s; }
-            .header-nav.open .nav-link:nth-child(3) { transition-delay: 0.15s; }
-            .header-nav.open .nav-link:nth-child(4) { transition-delay: 0.2s; }
+            /* Active State */
+            .nav-link.active {
+                color: #111;
+                background: transparent !important;
+                box-shadow: none !important;
+            }
+            
+            .nav-link.active svg {
+                stroke-width: 2.5px;
+                transform: translateY(-2px);
+            }
             
             .nav-link:active {
-                transform: scale(0.97);
-                background: rgba(0, 0, 0, 0.06);
+                transform: scale(0.9);
+                opacity: 0.7;
             }
             
-            .nav-link.active {
-                background: #111;
-                color: #fff;
-                font-weight: 600;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            /* Hide Backdrop */
+            .menu-backdrop {
+                display: none;
             }
-        }
-        
-        /* Backdrop for mobile menu */
-        .menu-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            z-index: 2000;
-        }
-        
-        .menu-backdrop.active {
-            opacity: 1;
-            pointer-events: all;
         }
     `;
     document.head.appendChild(styleEl);
@@ -318,30 +286,41 @@ document.addEventListener("DOMContentLoaded", function () {
     nav.id = 'header-nav';
     
     const links = [
-        { href: 'index.html', text: 'Index' },
-        { href: 'graph.html', text: 'Graphe' },
-        { href: 'top.html', text: 'Top 100' },
-        { href: 'about.html', text: 'Info' }
+        { 
+            href: 'index.html', 
+            text: 'Index',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`
+        },
+        { 
+            href: 'graph.html', 
+            text: 'Graphe',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>`
+        },
+        { 
+            href: 'top.html', 
+            text: 'Top 100',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
+        },
+        { 
+            href: 'about.html', 
+            text: 'Info',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>`
+        }
     ];
     
     links.forEach(link => {
         const a = document.createElement('a');
         a.href = link.href;
         a.className = 'nav-link';
-        a.textContent = link.text;
+        // Add Icon and Text
+        a.innerHTML = `${link.icon}<span class="nav-text">${link.text}</span>`;
         
         // Check if active
         if (currentPage === link.href || (currentPage === '' && link.href === 'index.html')) {
             a.classList.add('active');
         }
         
-        // Close menu on navigation (mobile)
-        a.onclick = function() {
-            nav.classList.remove('open');
-            menuBtn.classList.remove('active');
-            backdrop.classList.remove('active');
-            document.body.style.overflow = '';
-        };
+        // No close menu logic needed anymore as it's always visible
         
         nav.appendChild(a);
     });
