@@ -1,93 +1,65 @@
 import networkx as nx
-import os
-import sys
 import time
-import requests
-import json
+from llm_extractor import LLMExtractor
+import os
 
-# Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from config import OLLAMA_URL, OLLAMA_MODEL
-
-def call_ollama_simple(prompt):
+def enrich_fields(input_file="output/scientist_graph.gexf", output_file="output/scientist_graph.gexf"):
+    print(f"🔧 Chargement du graphe : {input_file}")
     try:
-        payload = {
-            "model": OLLAMA_MODEL,
-            "prompt": prompt,
-            "stream": False,
-            "options": {"temperature": 0.1}
-        }
-        resp = requests.post(f"{OLLAMA_URL}/api/generate", json=payload, timeout=30)
-        if resp.status_code == 200:
-            return resp.json().get("response", "").strip()
-    except Exception as e:
-        print(f"Ollama Error: {e}")
-    return None
-
-def enrich_fields(input_file, output_file):
-    print(f"Loading graph from {input_file}...")
-    try:
-        g = nx.read_gexf(input_file)
-    except Exception as e:
-        print(f"Error loading graph: {e}")
+        graph = nx.read_gexf(input_file)
+    except FileNotFoundError:
+        print("❌ Fichier introuvable.")
         return
 
-    nodes_to_process = [n for n, d in g.nodes(data=True) if not d.get('field') or d.get('field') == 'Unknown']
+    llm = LLMExtractor()
+    if not llm.check_connection():
+        print("❌ Impossible de se connecter au LLM. Abandon.")
+        return
+
+    nodes_to_process = []
+    for node, data in graph.nodes(data=True):
+        field = data.get('field', '').strip()
+        if not field or field.lower() in ['unknown', 'none', 'n/a', 'inconnu']:
+            nodes_to_process.append(node)
+    
     total = len(nodes_to_process)
-    print(f"Found {total} nodes with missing or 'Unknown' field.")
+    print(f"🎯 {total} scientifiques sans domaine identifiés.")
     
     if total == 0:
-        print("Nothing to do.")
+        print("✅ Tous les champs sont déjà remplis !")
         return
 
-    processed = 0
-    errors = 0
-
-    print("Using Ollama directly for simple field extraction...")
-
-    for node_id in nodes_to_process:
-        print(f"[{processed+1}/{total}] Enriching: {node_id}...")
-        
-        prompt = f"""
-        Identify the ONE primary scientific field for: "{node_id}".
-        Options: Physics, Mathematics, Philosophy, Astronomy, Chemistry, Biology, Computer Science, Literature.
-        If multiple apply, pick the most famous one.
-        If strictly unknown person, return "Unknown".
-        Output ONLY the single word. No punctuation.
-        """
-        
-        field = call_ollama_simple(prompt)
-        
-        if field:
-            # Cleanup
-            field = field.strip().replace('"', '').replace('.', '')
-            if len(field) > 20: 
-                # Fallback clean if model chatters
-                field = field.split('\n')[0].split(' ')[0]
+    count = 0
+    start_time = time.time()
+    
+    try:
+        for scientist in nodes_to_process:
+            count += 1
+            print(f"[{count}/{total}] Enrichissement : {scientist}")
             
-            # Normalize common variations
-            if "mathematic" in field.lower(): field = "Mathematics"
-            if "physic" in field.lower(): field = "Physics"
-            if "philosophy" in field.lower() or "philosopher" in field.lower(): field = "Philosophy"
+            field = llm.identify_field(scientist)
             
-            print(f"   -> Found: {field}")
-            g.nodes[node_id]['field'] = field
-        else:
-            print("   -> Failed to get response.")
-            errors += 1
+            # Mise à jour du graphe
+            graph.nodes[scientist]['field'] = field
             
-        processed += 1
-        
-        # Save periodically
-        if processed % 10 == 0:
-            print(f"Saving progress to {output_file}...")
-            nx.write_gexf(g, output_file)
+            # Autosave toutes les 20 requêtes
+            if count % 20 == 0:
+                nx.write_gexf(graph, output_file)
+                print(f"💾 Sauvegarde intermédiaire ({count} traités)...")
+                
+                # Petite pause pour éviter le rate limit si API
+                time.sleep(0.5)
 
-    print(f"Finished. Saving final result to {output_file}...")
-    nx.write_gexf(g, output_file)
-    print(f"Done. Processed: {processed}, Errors: {errors}")
+    except KeyboardInterrupt:
+        print("\n⚠️ Interruption utilisateur. Sauvegarde en cours...")
+    except Exception as e:
+        print(f"\n❌ Erreur inattendue : {e}")
+    finally:
+        # Sauvegarde finale
+        nx.write_gexf(graph, output_file)
+        duration = time.time() - start_time
+        print(f"\n✅ Terminé ! {count}/{total} champs enrichis en {duration:.1f}s.")
+        print(f"💾 Graphe sauvegardé : {output_file}")
 
 if __name__ == "__main__":
-    gexf_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output", "scientist_graph.gexf")
-    enrich_fields(gexf_path, gexf_path)
+    enrich_fields()

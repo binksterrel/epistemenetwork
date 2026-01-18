@@ -1,111 +1,103 @@
 import networkx as nx
-import os
-import sys
+from wikipedia_client import WikipediaClient
+import re
+import time
+from llm_extractor import LLMExtractor
 
-# List of nodes to remove (Groups, Institutions, Concepts, Placeholders)
-NODES_TO_REMOVE = [
-    # Placeholders / Errors
-    "Name not provided in text",
-    "Not found in the provided text",
-    "Not specified",
-    "Unknown",
-    "Unknown (Desarguesian plane, non-Desarguesian plane, Desargues' theorem, Desargues graph, Desargues configuration)",
-    
-    # Concepts / Movements / Ethics
-    "Dialectical materialism",
-    "Stoic ethics",
-    "English and Scottish Enlightenment",
-    "Gestalt psychologists",
-    "Greek thinkers",
-    "Arab thinkers",
-    "Islamic scholars during the Golden Age",
-    "European scholars starting in the 12th century",
-    "Scottish neurologist",
-    
-    # Institutions / Academies / Societies
-    "Bavarian Academy of Sciences and Humanities",
-    "Russian Academy of Sciences",
-    "Society of Antiquaries of London",
-    "South Place Ethical Society",
-    "Parnassus Boicus",
-    "Hashomer Hatzair",
-    "Left Poale Zionist",
-    
-    # Groups of people
-    "Bernoulli family",
-    "Grimm brothers",
-    "Future students of Friedrich Kohlrausch (physicist)",
-    "Students of Theodore William Richards",
-    "Scientists who have built upon Fresneau's work on rubber and waterproof materials",
-    
-    # Fictional / Others
-    "The Accountant (character)",
-    "The Accountant", 
-]
-
-# Additional mappings missed in previous deduplication
-ADDITIONAL_MERGES = {
-    "Bishop Berkeley": "George Berkeley",
-    "Francesco Buonamici (1596–1677)": "Francesco Buonamici", # Assuming the main one is intended
-    "Francesco Buonamici (1836–1921)": "Francesco Buonamici", # Merge to simple name or keep distinct? 
-                                                              # If simple "Francesco Buonamici" exists, it's ambiguous.
-                                                              # Let's check if "Francesco Buonamici" exists. 
-                                                              # Based on previous output, "Francesco Buonamici" exists.
-                                                              # It's safer to keep dates if we want precision, but for this graph 
-                                                              # merging to the most famous one (Galileo's teacher) is likely intended.
-                                                              # Let's merge for cleaner visual.
-}
-
-def clean_graph(input_file, output_file):
-    print(f"Loading graph from {input_file}...")
+def clean_and_repair(filename="output/scientist_graph.gexf"):
+    print(f"🧹 Démarrage du nettoyage et réparation sur: {filename}")
     try:
-        g = nx.read_gexf(input_file)
-    except Exception as e:
-        print(f"Error loading graph: {e}")
+        graph = nx.read_gexf(filename)
+    except FileNotFoundError:
+        print("❌ Fichier introuvable.")
         return
 
-    initial_count = len(g.nodes())
-    print(f"Initial node count: {initial_count}")
+    initial_nodes = graph.number_of_nodes()
+    client = WikipediaClient()
     
-    removed_count = 0
+    # --- STEP 1: REMOVE CONCEPTS & GROUPS ---
+    keywords = [
+        "theory", "theorem", "law", "principle", "effect", "constant", "equation", "paradox",
+        "university", "institute", "department", "society", "association", "club", "group", "school",
+        "medal", "prize", "award",
+        "journal", "language", "book", "publication", "project", "mission", "program",
+        "members", "followers", "residents", "list of", "history of",
+        "nobel", "royal", "academy", "people", "scientists", "developers",
+        "firstname", "lastname", "professor", "doctor", "dr.", "sir", "lord", "lady",
+        "unnamed", "unknown", "students", "researchers", "successors", "colleagues",
+        "many", "several", "various", "family", "children", "grandchildren", "wife", "daughter", "son",
+        "shoemaker", "captain", "author", "editor", "writer", "novelist", "poet"
+    ]
     
-    # 1. Remove specific nodes
-    for node in NODES_TO_REMOVE:
-        if g.has_node(node):
-            print(f"Removing node: {node}")
-            g.remove_node(node)
-            removed_count += 1
-            
-    # 2. Perform additional merges
-    merged_count = 0
-    for variant, canonical in ADDITIONAL_MERGES.items():
-        if g.has_node(variant):
-            if not g.has_node(canonical):
-                print(f"Renaming '{variant}' to '{canonical}'")
-                mapping = {variant: canonical}
-                g = nx.relabel_nodes(g, mapping, copy=False)
-            else:
-                print(f"Merging '{variant}' into '{canonical}'")
-                for neighbor in g.neighbors(variant):
-                    if neighbor == canonical: continue
-                    if not g.has_edge(canonical, neighbor):
-                        g.add_edge(canonical, neighbor)
-                g.remove_node(variant)
-                merged_count += 1
+    nodes_to_remove = []
+    
+    for node in list(graph.nodes()):
+        lower_name = node.lower()
+        
+        # Keyword Check
+        for kw in keywords:
+             if re.search(r'\b' + re.escape(kw) + r'\b', lower_name):
+                 print(f"  🗑️ Suppression (Mot-clé '{kw}'): {node}")
+                 nodes_to_remove.append(node)
+                 break
+        
+        # Length Check (heuristic: nom trop long = description)
+        if len(node) > 40:
+             if node not in nodes_to_remove:
+                 print(f"  🗑️ Suppression (Nom trop long > 40): {node}")
+                 nodes_to_remove.append(node)
 
-    final_count = len(g.nodes())
-    print(f"Final node count: {final_count}")
-    print(f"Removed {removed_count} invalid nodes.")
-    print(f"Merged {merged_count} additional duplicates.")
+    for n in nodes_to_remove:
+        graph.remove_node(n)
+        
+    print(f"✅ Étape 1 terminée: {len(nodes_to_remove)} nœuds supprimés.")
     
-    print(f"Saving to {output_file}...")
-    nx.write_gexf(g, output_file)
-    print("Done.")
+    # --- STEP 2: REPAIR MISSING DATA ---
+    print("\n🔧 Étape 2: Réparation des données manquantes (Année naissance = 0)...")
+    repaired_count = 0
+    
+    nodes_to_repair = [n for n, d in graph.nodes(data=True) if int(d.get('birth_year', 0)) == 0]
+    print(f"   {len(nodes_to_repair)} candidats à réparer.")
+    
+    try:
+        for i, node in enumerate(nodes_to_repair):
+            print(f"   [{i+1}/{len(nodes_to_repair)}] Réparation de: {node}")
+            try:
+                birth_year, _ = client.extract_years(node)
+                if birth_year:
+                    graph.nodes[node]['birth_year'] = int(birth_year)
+                    print(f"     ✅ Trouvé: {birth_year}")
+                    repaired_count += 1
+                else:
+                    print("     ❌ Pas trouvé.")
+            except Exception as e:
+                print(f"     ⚠️ Erreur: {e}")
+            
+            # Rate limit
+            if i % 10 == 0:
+                 time.sleep(0.5)
+
+            # Autosave periodically
+            if i > 0 and i % 50 == 0:
+                print(f"   💾 Autosave ({i}/{len(nodes_to_repair)})...")
+                nx.write_gexf(graph, filename)
+                
+    except KeyboardInterrupt:
+        print("\n🛑 Interruption utilisateur. Sauvegarde en cours...")
+        nx.write_gexf(graph, filename)
+        print("✅ Sauvegardé.")
+        return
+
+    print(f"✅ Étape 2 terminée: {repaired_count} nœuds réparés.")
+
+    # --- SAVE ---
+    final_nodes = graph.number_of_nodes()
+    nx.write_gexf(graph, filename)
+    print("\n" + "="*40)
+    print(f"🏁 TERMINÉ")
+    print(f"Avant: {initial_nodes} -> Après: {final_nodes}")
+    print(f"Sauvegardé dans: {filename}")
+    print("="*40)
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        gexf_path = sys.argv[1]
-    else:
-        gexf_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output", "scientist_graph.gexf")
-    
-    clean_graph(gexf_path, gexf_path)
+    clean_and_repair()

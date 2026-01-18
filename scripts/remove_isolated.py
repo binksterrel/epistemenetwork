@@ -1,38 +1,56 @@
 import networkx as nx
-import os
-import sys
 
-def remove_isolated(input_file, output_file):
-    print(f"Loading graph from {input_file}...")
+def remove_isolated(filename="output/scientist_graph.gexf"):
+    print(f"🕸️ Suppression des nœuds isolés sur: {filename}")
     try:
-        g = nx.read_gexf(input_file)
-    except Exception as e:
-        print(f"Error loading graph: {e}")
+        graph = nx.read_gexf(filename)
+    except FileNotFoundError:
+        print("❌ Fichier introuvable.")
         return
 
-    initial_count = len(g.nodes())
-    print(f"Initial node count: {initial_count}")
+    initial_count = graph.number_of_nodes()
     
-    # Identify isolated nodes
-    isolated = [n for n in g.nodes() if g.degree(n) == 0]
-    
-    if not isolated:
-        print("No isolated nodes found.")
-        return
-
-    print(f"Found {len(isolated)} isolated nodes.")
-    for node in isolated:
-        print(f"Removing isolated node: {node}")
-        g.remove_node(node)
+    # Identifier les composantes connexes (Graph Dirigé -> Weakly Connected)
+    # On convertit en non-dirigé pour la notion de "groupe"
+    if nx.is_directed(graph):
+        components = list(nx.weakly_connected_components(graph))
+    else:
+        components = list(nx.connected_components(graph))
         
-    final_count = len(g.nodes())
-    print(f"Final node count: {final_count}")
-    print(f"Removed {len(isolated)} nodes.")
+    components.sort(key=len, reverse=True)
     
-    print(f"Saving to {output_file}...")
-    nx.write_gexf(g, output_file)
-    print("Done.")
+    if not components:
+        print("❌ Graphe vide.")
+        return
+
+    largest_component = components[0]
+    num_components = len(components)
+    
+    print(f"📊 Analyse des groupes :")
+    print(f"   - Nombre de groupes (composantes): {num_components}")
+    print(f"   - Taille du plus grand groupe: {len(largest_component)}")
+    
+    if num_components > 1:
+        nodes_to_remove = []
+        for comp in components[1:]:
+            nodes_to_remove.extend(comp)
+            
+        graph.remove_nodes_from(nodes_to_remove)
+        print(f"✅ Suppression de {num_components - 1} petits groupes isolés.")
+        print(f"   (Total {len(nodes_to_remove)} nœuds supprimés)")
+    else:
+        print("✅ Le graphe est déjà entièrement connecté (1 seul groupe).")
+        
+    final_count = graph.number_of_nodes()
+    
+    if initial_count != final_count:
+        nx.write_gexf(graph, filename)
+        print(f"💾 Graphe sauvegardé ({final_count} nœuds restants).")
+        
+    print("-" * 30)
+    print(f"Avant: {initial_count}")
+    print(f"Après: {final_count}")
+    print("-" * 30)
 
 if __name__ == "__main__":
-    gexf_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "output", "scientist_graph.gexf")
-    remove_isolated(gexf_path, gexf_path)
+    remove_isolated()

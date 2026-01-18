@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logo = document.createElement('a');
     logo.href = 'index.html';
     logo.className = 'header-logo';
-    logo.textContent = 'EPISTEME AI';
+    logo.textContent = 'EPISTEME NETWORK';
     
     // Mobile menu button (Burger)
     const menuBtn = document.createElement('button');
