@@ -266,35 +266,40 @@
         }
 
         /* Mobile Landscape */
-        /* Mobile Landscape & Portrait - HERO ONLY */
+        /* Mobile Landscape & Portrait - HERO + SCROLL */
         @media (max-width: 768px) {
-            /* Enable scrolling but kept minimal */
+            /* Enable scrolling */
             body {
-                overflow: hidden !important; /* Lock scroll to focus on CTA */
-                height: 100vh;
-                position: fixed;
-                width: 100%;
+                overflow: auto !important;
+                height: auto;
+                position: static;
             }
             
             .main-grid {
                 margin-top: 0 !important;
-                height: 100vh !important;
+                height: auto !important;
                 display: flex !important;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
                 padding-bottom: 80px; /* Space for dock */
             }
             
-            /* HIDE EVERYTHING except Main Content */
+            /* SHOW CONTENT BELOW HERO */
             .sidebar-left,
             .sidebar-right,
-            .footer,
+            .footer {
+                display: flex !important;
+                flex-direction: column;
+                padding: 32px 24px;
+                background: rgba(255,255,255,0.5); /* Slight background */
+                width: 100%;
+            }
+            
+            /* Hide Marquee on mobile for clean look */
             .marquee-container {
                 display: none !important;
             }
             
-            /* SAFE ZONE CONTAINER - Hero Section */
+            /* SAFE ZONE CONTAINER - Hero Section (First Screen) */
             .content-center {
                 border: none !important;
                 padding: 0 24px !important;
@@ -304,7 +309,8 @@
                 justify-content: center;
                 width: 100%;
                 text-align: center;
-                flex: 1; /* Take full space */
+                min-height: 100vh; /* Takes full screen height */
+                margin-bottom: 40px;
             }
             
             /* Typography Scale - Heroic */
@@ -334,7 +340,7 @@
                 font-size: 16px;
                 font-weight: 600;
                 padding: 16px 32px;
-                border-radius: 100px; /* Fully rounded */
+                border-radius: 100px;
                 width: auto;
                 min-width: 240px;
                 justify-content: center;
@@ -345,6 +351,64 @@
             .btn-main svg {
                 width: 20px;
                 height: 20px;
+            }
+            
+            /* --- CONTENT SECTIONS STYLING --- */
+            
+            /* Stats Section */
+            .sidebar-left {
+                order: 2;
+                gap: 16px;
+            }
+            .sidebar-left .stat-block {
+                background: #fff;
+                padding: 20px !important;
+                border-radius: 16px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            }
+            
+            /* Hide status indicator on mobile */
+            .sidebar-left > div[style*="margin-top: auto"] {
+                display: none !important;
+            }
+            
+            /* Features Section */
+            .sidebar-right {
+                order: 3;
+                gap: 16px;
+            }
+            .feature-item {
+                background: #fff;
+                padding: 24px !important;
+                border-radius: 16px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            }
+            
+            /* Footer */
+            .footer {
+                order: 4;
+                text-align: center;
+                gap: 12px;
+                font-size: 12px;
+                padding-bottom: 100px !important; /* Extra padding for bottom dock */
+            }
+            
+            /* Scroll Down Indicator */
+            .content-center::after {
+                content: '↓';
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 24px;
+                opacity: 0.3;
+                animation: bounce 2s infinite;
+            }
+            
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+                40% { transform: translateX(-50%) translateY(-10px); }
+                60% { transform: translateX(-50%) translateY(-5px); }
             }
         }
     </style>
