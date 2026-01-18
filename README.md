@@ -118,14 +118,14 @@ python3 validator.py
 # Supprimer les nœuds isolés
 python3 scripts/remove_isolated.py
 
-# Dédupliquer les nœuds
-python3 scripts/deduplicate_nodes.py
+# Dédupliquer les nœuds (nettoyage)
+python3 scripts/merge_duplicates.py
 
-# Regrouper les domaines mineurs
-python3 scripts/group_to_other.py
+# Vérifier la qualité/Audit
+python3 scripts/audit_graph.py
 
-# Sauvegarder une version
-python3 scripts/save_version.py "v2.0_description"
+# Nettoyage final
+python3 scripts/final_clean.py
 ```
 
 ## 📂 Structure du projet
@@ -137,22 +137,22 @@ python3 scripts/save_version.py "v2.0_description"
 ├── wikipedia_client.py      # Récupération des textes Wikipédia
 ├── llm_extractor.py         # Extraction des relations via LLM
 ├── graph_builder.py         # Construction du graphe NetworkX
-├── graph_analyzer.py        # PageRank, communautés, métriques
 ├── visualizer.py            # Génération HTML/JS interactive
 ├── cache_manager.py         # Cache intelligent pour LLM
 ├── validator.py             # Validation Wikidata
 │
-├── scripts/
-│   ├── enrich_temporal.py       # Extraction des dates (naissance/mort)
-│   ├── paradigm_shifters.py     # Analyse des trous structurels
-│   ├── link_prediction.py       # Prédiction de liens manquants
-│   ├── tradition_analysis.py    # Comparaison des traditions
-│   ├── deduplicate_nodes.py     # Fusion des doublons
-│   ├── filter_non_scientists.py # Nettoyage des non-scientifiques
+├── scripts/                 # Scripts d'analyse et de maintenance
+│   ├── graph_analyzer.py        # PageRank, communautés, métriques
+│   ├── check_accents.py         # Vérification des encodages
+│   ├── clean_graph.py           # Nettoyage automatique
+│   ├── enrich_fields.py         # Enrichissement des métadonnées
+│   ├── export_text_report.py    # Rapport texte
+│   ├── final_clean.py           # Nettoyage final
+│   ├── get_stats.py             # Statistiques rapides
+│   ├── merge_duplicates.py      # Fusion des doublons
+│   ├── post_process_graph.py    # Post-traitement GEXF
 │   ├── remove_isolated.py       # Suppression des nœuds isolés
-│   ├── group_to_other.py        # Regroupement des domaines mineurs
-│   ├── regenerate_viz.py        # Régénération de la visualisation
-│   └── save_version.py          # Sauvegarde avec versioning
+│   └── visualize_current.py     # Régénération de la visualisation
 │
 ├── output/
 │   ├── index.html           # Visualisation interactive
@@ -160,7 +160,7 @@ python3 scripts/save_version.py "v2.0_description"
 │   └── scientist_graph.gexf # Graphe au format GEXF (Gephi)
 │
 ├── saves/                   # Versions sauvegardées du graphe
-└── data/                    # Cache des réponses LLM
+└── cache/                   # Cache des réponses LLM
 ```
 
 ## 📊 Métriques du Graphe Actuel
