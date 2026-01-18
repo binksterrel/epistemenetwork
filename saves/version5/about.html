@@ -189,22 +189,37 @@
                 padding-bottom: 0;
                 height: auto !important;
                 gap: 0;
-                display: block;
+                display: flex !important; /* Use flexbox to reorder */
+                flex-direction: column;
             }
             
-            /* Hide sidebars */
-            .sidebar-left,
-            .sidebar-right {
-                display: none !important;
-            }
-            
-            /* ========================================
-               HERO SECTION - Immersive
-               ======================================== */
+            /* CONTENT FIRST */
             .content-center {
+                order: 1;
                 overflow-y: visible !important;
                 padding: 0 !important;
-                grid-column: 1 / -1 !important;
+            }
+
+            /* HIDE DEFAULT SIDEBAR STYLE, BUT SHOW CONTENT AT BOTTOM */
+            .sidebar-left,
+            .sidebar-right {
+                display: block !important; /* Show them */
+                padding: 24px 24px !important;
+                height: auto !important;
+                overscroll-behavior: auto;
+                position: static !important; /* No sticky */
+                border: none !important;
+                background: transparent !important;
+                order: 2; /* Place after content */
+            }
+            
+            .sidebar-right {
+                order: 3;
+                padding-top: 0 !important; /* Reduce gap */
+            }
+
+            .footer {
+                order: 4;
             }
             
             /* Hero container - Compact */
