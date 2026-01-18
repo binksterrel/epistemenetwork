@@ -362,9 +362,16 @@
                 margin-bottom: 20px;
             }
             
-            /* Hide main paragraphs on mobile */
-            .content-center > p {
+            /* Hide ONLY the intro paragraph on mobile */
+            .content-center > p:nth-of-type(1) {
                 display: none !important;
+            }
+            
+            /* Ensure other paragraphs are visible and properly padded */
+            .content-center > p:not(:nth-of-type(1)) {
+                display: block !important;
+                padding: 0 24px !important;
+                text-align: left !important; /* Reset alignment for content */
             }
             
             /* Pipeline cards - Lighter */
