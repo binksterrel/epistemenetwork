@@ -94,6 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
             font-weight: 600;
         }
 
+        /* Hide icons on Desktop */
+        .nav-link svg {
+            display: none;
+        }
+
         /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
@@ -107,7 +112,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* Mobile Styles - Bottom Dock Design (App-Like) */
         @media (max-width: 768px) {
-            /* Header Top - Just Logo */
+            /* ... existing styles ... */
+            
+            /* Dock Items */
+            .nav-link {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 0;
+                background: transparent !important;
+                border-radius: 0;
+                color: #999;
+                font-size: 10px;
+                font-weight: 500;
+                gap: 4px;
+                transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            
+            .nav-link svg {
+                display: block; /* Show icons on mobile */
+                width: 24px;
+                height: 24px;
+                stroke-width: 2px;
+                transition: all 0.2s;
+            }
             .app-header {
                 top: 0;
                 left: 0 !important; /* Force left 0 to override desktop 50% */
@@ -139,7 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             
             .header-logo::before {
-                display: none; /* Minimal logo */
+                display: block; /* Show dot */
+                width: 6px;
+                height: 6px;
+                margin-right: 8px; /* Add spacing */
             }
             
             /* Hide Burger */
@@ -239,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logo = document.createElement('a');
     logo.href = 'index.html';
     logo.className = 'header-logo';
-    logo.textContent = 'EPISTEME AI';
+    logo.textContent = 'EPISTEME NETWORK';
     
     // Mobile menu button (Burger)
     const menuBtn = document.createElement('button');
