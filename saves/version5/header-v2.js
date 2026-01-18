@@ -139,7 +139,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             
             .header-logo::before {
-                display: none; /* Minimal logo */
+                display: block; /* Show dot */
+                width: 6px;
+                height: 6px;
+                margin-right: 8px; /* Add spacing */
             }
             
             /* Hide Burger */
@@ -239,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logo = document.createElement('a');
     logo.href = 'index.html';
     logo.className = 'header-logo';
-    logo.textContent = 'EPISTEME AI';
+    logo.textContent = 'EPISTEME NETWORK';
     
     // Mobile menu button (Burger)
     const menuBtn = document.createElement('button');
