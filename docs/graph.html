@@ -478,28 +478,42 @@
             .sidebar {
                 display: none !important;
             }
+            
+            /* Hide status bar on mobile to avoid conflict with Dock */
+            .status-bar {
+                display: none !important;
+            }
 
             .floating-actions {
                 width: 100%;
                 left: 0;
                 right: 0;
-                bottom: 50px; /* Moved up for better reach */
-                flex-direction: column; /* Stack vertically: Filter then Buttons (due to DOM order) */
+                bottom: 110px; /* Moved up above the Dock (64px + 24px + space) */
+                flex-direction: column; /* Stack vertically: Filter then Buttons */
                 justify-content: flex-end;
                 align-items: center; /* Center horizontally */
                 padding: 0 24px;
                 pointer-events: none;
                 gap: 16px;
+                z-index: 1000; /* Ensure above everything else but below modal */
             }
             
             .floating-actions > * {
-                pointer-events: all;
+                pointer-events: auto; /* Re-enable clicks on buttons */
             }
 
             .filter-control {
                 display: flex; /* Show filter on mobile */
                 width: auto; /* Let it size naturally */
-                max-width: 100%;
+                max-width: 90%;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+            }
+            
+            /* Make buttons slightly easier to tap */
+            .btn-floating {
+                width: 48px;
+                height: 48px;
             }
         }
         
