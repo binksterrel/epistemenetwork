@@ -110,11 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
             /* Header Top - Just Logo */
             .app-header {
                 top: 0;
-                left: 0;
+                left: 0 !important; /* Force left 0 to override desktop 50% */
                 right: 0;
                 width: 100%;
                 max-width: 100%;
                 height: 60px;
+                transform: none !important; /* CRITICAL: Remove desktop transform to fix positioning */
                 border: none;
                 background: transparent; /* Transparent header */
                 backdrop-filter: none;
