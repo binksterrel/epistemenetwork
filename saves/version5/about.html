@@ -330,8 +330,13 @@
                 text-align: center;
             }
             
-            h2 i {
-                display: none !important; /* Hide icons on mobile - override inline styles */
+            h2 i, 
+            h2 svg, 
+            h2 [data-lucide],
+            h3 i, 
+            h3 svg, 
+            h3 [data-lucide] {
+                display: none !important; /* Hide all icons in headings on mobile */
             }
             
             /* Paragraphs */
