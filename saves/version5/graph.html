@@ -473,15 +473,39 @@
             border-color: #18181B;
         }
 
-        /* Mobile Adjustments */
+            /* Mobile Adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 display: none !important;
             }
             
-            /* Hide status bar on mobile to avoid conflict with Dock */
+            /* Reposition Status Bar as a floating pill at the TOP on mobile */
             .status-bar {
-                display: none !important;
+                display: flex !important;
+                position: fixed;
+                top: 70px; /* Below the logo header */
+                bottom: auto; /* Unset bottom */
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                max-width: 90%;
+                height: 36px;
+                padding: 0 16px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(0,0,0,0.08);
+                border-radius: 100px; /* Pill shape */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                z-index: 90;
+                font-size: 11px;
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            /* Hide the separator lines to save space */
+            .status-bar .status-separator {
+                display: none;
             }
 
             .floating-actions {
