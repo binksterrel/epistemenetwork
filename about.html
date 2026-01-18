@@ -342,10 +342,9 @@
                 margin-bottom: 20px;
             }
             
-            /* Center main paragraphs (direct children of content-center) */
+            /* Hide main paragraphs on mobile */
             .content-center > p {
-                text-align: center;
-                padding: 0 24px; /* Add horizontal padding for mobile */
+                display: none !important;
             }
             
             /* Pipeline cards - Lighter */
@@ -488,7 +487,7 @@
         <!-- CENTER: Narrative -->
         <main class="content-center">
             <h1 style="text-align: center;">Architecture de<br>l'Intelligence Collective</h1>
-            <p style="font-size: 1.1rem; font-weight: 500; color: #000; margin-bottom: 48px; text-align: center;">
+            <p style="font-size: 1.1rem; font-weight: 500; color: #000; margin-bottom: 48px; text-align: center !important; padding: 0 32px !important;">
                 Ce projet cartographie 5 siècles de pensée scientifique en combinant extraction sémantique par IA, 
                 théorie des graphes et visualisation interactive. Plus qu'un simple réseau social, c'est une machine 
                 à découvrir les structures invisibles de la connaissance.
