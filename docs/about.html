@@ -229,35 +229,35 @@
             
             /* Hero container - Compact */
             .content-center > h1:first-child {
-                min-height: 70vh; /* Reduced from 100vh */
+                min-height: 60vh; /* Reduced further */
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                padding: 80px 24px 60px; /* Less padding */
+                align-items: flex-start; /* Left align */
+                padding: 80px 24px 40px;
                 margin: 0 !important;
                 position: relative;
             }
             
             /* Hero title - Simpler */
             h1 {
-                font-size: 2.2rem !important; /* Slightly smaller */
+                font-size: 2.2rem !important;
                 font-weight: 700;
                 line-height: 1.15;
                 letter-spacing: -0.03em;
-                text-align: center !important;
+                text-align: left !important; /* Left align */
                 margin-bottom: 16px !important;
-                color: #000; /* Solid color, no gradient */
+                color: #000;
             }
             
             /* Hero subtitle - Concise */
             .content-center > p:first-of-type {
                 font-size: 15px !important;
                 line-height: 1.6;
-                text-align: center;
-                margin-bottom: 40px !important; /* Less space */
+                text-align: left !important; /* Left align */
+                margin-bottom: 40px !important;
                 color: #666;
-                max-width: 85%;
+                max-width: 95%; /* Use more width */
             }
             
             /* ========================================
@@ -267,7 +267,7 @@
                 display: flex !important;
                 gap: 12px !important;
                 margin-bottom: 0 !important;
-                justify-content: center;
+                justify-content: flex-start !important; /* Left align */
                 flex-wrap: wrap;
                 padding: 0 !important;
             }
@@ -367,9 +367,11 @@
                 margin-bottom: 20px;
             }
             
-            /* Hide ONLY the intro paragraph on mobile */
+            /* Show intro paragraph on mobile (previously hidden) */
             .content-center > p:nth-of-type(1) {
-                display: none !important;
+                display: block !important;
+                margin-top: 0 !important;
+                margin-bottom: 32px !important;
             }
             
             /* Ensure other paragraphs are visible and properly padded */
